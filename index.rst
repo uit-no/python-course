@@ -9,4 +9,4 @@ Exercises
 .. toctree::
    :maxdepth: 1
 
-   exercises/foo.rst
+   exercises/intro.rst
