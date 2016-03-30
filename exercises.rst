@@ -58,12 +58,12 @@ Using the ``upper()`` method you can uppercase text:
 
   assert 'zZzZzzZzzZzZ'.upper() == 'ZZZZZZZZZZZZ'
 
-Now try to uppercase a string using ``map()`` (replace the "?"
+Now try to uppercase a string using your ``simple_map()`` (replace the "?"
 with some meaningful code):
 
 .. code-block:: python
 
-  assert ''.join(map(?, 'zZzZzzZzzZzZ')) == 'ZZZZZZZZZZZZ'
+  assert ''.join(simple_map(?, 'zZzZzzZzzZzZ')) == 'ZZZZZZZZZZZZ'
 
 
 Generators
