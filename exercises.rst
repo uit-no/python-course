@@ -21,6 +21,8 @@ You can also run a single test, e.g.::
 Basics
 ------
 
+Make the following tests green:
+
 .. literalinclude:: exercises/basics.py
    :language: python
    :linenos:
@@ -29,7 +31,8 @@ Basics
 List comprehensions
 -------------------
 
-Imagine you need all pythagorean triples up to n = 20 which happens to be::
+Imagine you need a list of all pythagorean triples up to n = 20 which happens
+to be::
 
   [(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15), (12, 16, 20)]
 
@@ -40,9 +43,26 @@ using a list comprehension in one single line.
 Higher-order functions
 ----------------------
 
+Make the following tests green:
+
 .. literalinclude:: exercises/higher-order.py
    :language: python
    :linenos:
+
+Using the ``upper()`` method you can uppercase text:
+
+.. code-block:: python
+  :linenos:
+
+  assert 'zZzZzzZzzZzZ'.upper() == 'ZZZZZZZZZZZZ'
+
+Now try to uppercase a string using ``map()`` (replace the "?"
+with some meaningful code):
+
+.. code-block:: python
+  :linenos:
+
+  assert ''.join(map(?, 'zZzZzzZzzZzZ')) == 'ZZZZZZZZZZZZ'
 
 
 Generators
