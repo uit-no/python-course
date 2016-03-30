@@ -19,3 +19,4 @@ Exercises
    :maxdepth: 1
 
    exercises/basics.rst
+   exercises/higher-order.rst
