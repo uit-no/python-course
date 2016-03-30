@@ -1,2 +1,4 @@
 pep8
 pytest
+requests
+click
