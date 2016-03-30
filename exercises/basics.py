@@ -1,4 +1,3 @@
-
 def reverse_list(l):
     """
     Reverses order of elements in list l.
