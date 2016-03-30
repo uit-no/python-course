@@ -8,6 +8,8 @@ Copy and paste them into a file called e.g. ``basics.py``.
 It is OK to copy all or just one or two exercises
 to start with. We give you the tests and you need
 to code the functions to make the tests pass.
+It is OK to work in pairs and it is OK to use
+Google and Stack Overflow.
 
 You can run the tests like this::
 
