@@ -183,7 +183,7 @@ Be all my sins remember'd."""
 def simple_zip(l1, l2):
     """
     Implement a simple zip function.
-    Do not use zip().
+    Do not use the built-in zip().
     """
     return None
 

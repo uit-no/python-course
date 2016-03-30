@@ -1,7 +1,7 @@
 def simple_filter(f, l):
     """
     Implement a simple filter function.
-    Do not use filter().
+    Do not use the built-in filter().
     """
     return None
 
@@ -19,7 +19,7 @@ def test_simple_filter():
 def simple_map(f, l):
     """
     Implement a simple map function.
-    Do not use map().
+    Do not use the built-in map().
     """
     return None
 
