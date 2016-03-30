@@ -49,3 +49,44 @@ Now what do you think will happen when you call ``simple_range(100000000)``?
 
 Rewrite your function using the generator pattern and discuss
 the advantages.
+
+
+Decorators
+----------
+
+Consider the following code:
+
+.. code-block:: python
+  :linenos:
+
+  def add(a, b):
+      return a + b
+
+  def subtract(a, b):
+      return a - b
+
+  i = add(2, 3)
+  j = subtract(2, 3)
+
+Now implement a decorator "debug" such that when you decorate
+the ``subtract`` function and execute this script:
+
+.. code-block:: python
+  :linenos:
+  :emphasize-lines: 4
+
+  def add(a, b):
+      return a + b
+
+  @debug
+  def subtract(a, b):
+      return a - b
+
+  i = add(2, 3)
+  j = subtract(2, 3)
+
+You obtain::
+
+  $ python example.py
+
+  function "subtract" called with arguments: 2 3
