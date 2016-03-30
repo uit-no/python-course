@@ -52,7 +52,6 @@ Make the following tests green:
 Using the ``upper()`` method you can uppercase text:
 
 .. code-block:: python
-  :linenos:
 
   assert 'zZzZzzZzzZzZ'.upper() == 'ZZZZZZZZZZZZ'
 
@@ -60,7 +59,6 @@ Now try to uppercase a string using ``map()`` (replace the "?"
 with some meaningful code):
 
 .. code-block:: python
-  :linenos:
 
   assert ''.join(map(?, 'zZzZzzZzzZzZ')) == 'ZZZZZZZZZZZZ'
 
