@@ -1,11 +1,10 @@
 
 
-======
-Basics
-======
+Exercises
+=========
 
 Below you find the source code for the exercises.
-Copy and paste them into a file called ``basics.py``.
+Copy and paste them into a file called e.g. ``basics.py``.
 It is OK to copy all or just one or two exercises
 to start with. We give you the tests and you need
 to code the functions to make the tests pass.
@@ -19,9 +18,17 @@ You can also run a single test, e.g.::
   $ py.test -vv -k test_reverse_list basics.py
 
 
-Sources
--------
+Basics
+------
 
-.. literalinclude:: basics.py
+.. literalinclude:: exercises/basics.py
+   :language: python
+   :linenos:
+
+
+Higher-order functions
+----------------------
+
+.. literalinclude:: exercises/higher-order.py
    :language: python
    :linenos:

@@ -1,22 +1,10 @@
 
 
-Python course
-=============
-
-Installation
-------------
+Python course material
+======================
 
 .. toctree::
    :maxdepth: 1
 
-   installation/requirements.rst
-
-
-Exercises
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   exercises/basics.rst
-   exercises/higher-order.rst
+   installation.rst
+   exercises.rst
