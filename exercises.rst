@@ -43,7 +43,7 @@ Implement a function ``simple_range(n)`` which returns a list ``[0, 1, 2, ..., n
 .. code-block:: python
 
   assert simple_range(5) == [0, 1, 2, 3, 4]
-  assert simple_range(10) == [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  assert simple_range(10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 Now what do you think will happen when you call ``simple_range(100000000)``?
 
