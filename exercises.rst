@@ -26,6 +26,17 @@ Basics
    :linenos:
 
 
+List comprehensions
+-------------------
+
+Imagine you need all pythagorean triples up to n = 20 which happens to be::
+
+  [(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15), (12, 16, 20)]
+
+Try to implement the list of all such triples
+using a list comprehension in one single line.
+
+
 Higher-order functions
 ----------------------
 
