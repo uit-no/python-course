@@ -31,15 +31,15 @@ Make the following tests green:
 List comprehensions
 -------------------
 
-Imagine you need a list of all pythagorean triples up to n = 20 which happens
-to be::
+Imagine you need a list of all Pythagorean triples up to n = 20 which happens
+to be (you remember the triangles from school)::
 
   [(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15), (12, 16, 20)]
 
 Try to implement the list of all such triples
-using a list comprehension in one single line of python code.
+using a list comprehension in one single line of Python code.
 Use a variable for the upper bound such that if you one day
-need all pythagorean triples up to n = 2000 you only need to change
+need all Pythagorean triples up to n = 2000 you only need to change
 one line of code.
 
 
