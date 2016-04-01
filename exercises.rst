@@ -102,12 +102,18 @@ Consider the following code:
   i = add(2, 3)
   j = subtract(2, 3)
 
-Now implement a decorator "debug" such that when you decorate
+Now adapt the debug decorator such that when you decorate
 the ``subtract`` function and execute this script:
 
 .. code-block:: python
   :linenos:
-  :emphasize-lines: 4
+  :emphasize-lines: 1-5,10
+
+  def debug(f):
+      def _decorator(*args, **kwargs):
+          response = f(*args, **kwargs)
+          return response
+      return _decorator
 
   def add(a, b):
       return a + b
