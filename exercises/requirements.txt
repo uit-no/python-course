@@ -3,3 +3,7 @@ pytest
 requests
 click
 jupyter
+scipy
+numpy
+pandas
+sympy
