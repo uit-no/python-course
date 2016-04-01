@@ -6,5 +6,5 @@ Python course material
 .. toctree::
    :maxdepth: 1
 
-   installation/installation.rst
+   installation.rst
    exercises.rst

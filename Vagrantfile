@@ -37,8 +37,8 @@ Vagrant.configure(2) do |config|
     export PATH=$PATH:/home/vagrant/anaconda3/bin
 
     # our stuff
-    cd /vagrant/installation
-    conda create -q -y -n course --file requirements.txt
+    cd /vagrant
+    conda create -q -y -n course --file requirements_course.txt
     source activate course
     echo "source activate course" | tee -a /home/vagrant/.bashrc
   SHELL
