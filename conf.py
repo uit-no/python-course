@@ -47,9 +47,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PythonCourse documentation'
-copyright = u'2015, PythonCourse teachers'
-author = u'PythonCourse teachers'
+project = u'Python course documentation'
+copyright = u'2015, Python course teachers'
+author = u'Python course teachers'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -230,8 +230,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'PythonCourse.tex', u'PythonCourse Documentation',
-   u'PythonCourse teachers', 'manual'),
+  (master_doc, 'PythonCourse.tex', u'Python course documentation',
+   u'Python course teachers', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -260,7 +260,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'hpc', u'PythonCourse Documentation',
+    (master_doc, 'hpc', u'Python course documentation',
      [author], 1)
 ]
 
@@ -274,7 +274,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'PythonCourse', u'PythonCourse Documentation',
+  (master_doc, 'PythonCourse', u'Python course documentation',
    author, 'PythonCourse', 'One line description of project.',
    'Miscellaneous'),
 ]
