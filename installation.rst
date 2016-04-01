@@ -14,22 +14,37 @@ with::
 Option 1: Anaconda (good for beginners)
 =======================================
 
+Go to https://www.continuum.io/downloads and download the Python 3.5 version
+for your system.
+
+
 Windows
 -------
 
-Radovan working on this ...
-
-
-Linux
------
-
-Radovan working on this ...
+Install Python 3 using all of the defaults for installation but make sure to
+check "Make Anaconda the default Python".
 
 
 Mac OS X
 --------
 
-Radovan working on this ...
+Install Python 3 using the defaults for installation.
+
+
+Linux
+-----
+
+In your terminal run the installer that
+you just downloaded, e.g.::
+
+  $ bash Anaconda3-4.0.0-Linux-x86_64.sh
+
+If you answer "yes" to the question
+"Do you wish the installer to prepend the Anaconda3 install location
+to PATH in your /home/user/.bashrc ?"
+then this will make the Anaconda distribution the default Python.
+You can always undo this by editing your .bashrc.
+Otherwise you go with the defaults.
 
 
 Option 2: Virtual Environments (Linux or Mac OS X)
