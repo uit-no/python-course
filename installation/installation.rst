@@ -64,3 +64,43 @@ you can install all requirements using::
   $ python3 -m venv venv
   $ source venv/bin/activate
   $ pip install -r installation/requirements.txt
+
+We recommend this approach to seasoned users. This because a possible pitfall
+with this approach is that some of the pip packages need C compilation, which
+depends on a number of system packages that pip can't install. If the "pip
+install" step fails with compilation errors, then you likely don't have some
+required C libraries installed on your system.
+
+
+Option 3: Vagrant
+=================
+
+If you are familiar with `Vagrant <https://www.vagrantup.com>`_, then a Linux
+virtual machine with everything you need is just a "git clone" and a "vagrant
+up" away.
+
+First, download and unpack or clone the `course repository
+<https://github.com/uit-no/python-course>`_ from github. Then, open a terminal,
+cd to the directory in which you have unpacked or cloned the repository, and
+run::
+
+    vagrant up
+
+In a couple of minutes, you'll have a VM that has everything installed. Log in
+to the machine and look around like so::
+
+    vagrant ssh
+
+Then, once you are logged in::
+
+    cd /vagrant
+    ls
+
+One thing you will for sure like to do is to start `jupyter
+<http://jupyter.org/>`_, which we use in the course for some presentations and
+exercises::
+
+    cd /vagrant
+    ./run_jupyter.sh
+
+Now just point your browser to http://localhost:8888
