@@ -37,6 +37,7 @@ Option 2: Virtual Environments (Linux or Mac OS X)
 
 For this make sure that you have virtualenv installed.
 This also assumes that Python is installed on the system.
+See also http://docs.python-guide.org/en/latest/dev/virtualenvs/.
 
 Go to https://github.com/uit-no/python-course
 and download the repository as zip file (click
