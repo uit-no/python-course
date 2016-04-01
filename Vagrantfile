@@ -9,6 +9,11 @@ Vagrant.configure(2) do |config|
       host_ip: "127.0.0.1", # not visible from outside our host box
       auto_correct: true
 
+  # port for reveal.js
+  config.vm.network "forwarded_port", guest: 8889, host: 8889,
+      host_ip: "127.0.0.1", # not visible from outside our host box
+      auto_correct: true
+
   config.vm.provision "shell",
     privileged: false,
     inline: <<-SHELL
