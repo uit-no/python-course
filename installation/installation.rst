@@ -63,4 +63,4 @@ you can install all requirements using::
 
   $ python3 -m venv venv
   $ source venv/bin/activate
-  $ pip install -r requirements.txt
+  $ pip install -r installation/requirements.txt
