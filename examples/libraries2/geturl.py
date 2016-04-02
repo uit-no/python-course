@@ -13,7 +13,15 @@ def print_headers(response):
 @click.argument('url')
 @click.option('--head', is_flag=True, help='Print headers instead of content')
 def main(url, head):
-    """A very basic version of curl."""
+    """A very basic version of curl.
+
+    Examples:
+
+        python geturl.py https://google.com/o
+        python geturl.py https://swapi.co/api/people/1 | python -m json.tool
+
+    Example: 
+"""
     r = requests.get(url)
     if r.ok:
         if head:
