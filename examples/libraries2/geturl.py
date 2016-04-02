@@ -1,7 +1,6 @@
 """
 """
 import sys
-import pprint
 import click
 import requests
 
@@ -17,7 +16,8 @@ def main(url, head):
     r = requests.get(url)
     if r.ok:
         if head:
-            print(dir(r.raw_headers))
+            for key, val in sorted(r.headers.items()):
+                print('{}: {}'.format(key, val))
         else:
             print(r.text, end='')            
     else:
