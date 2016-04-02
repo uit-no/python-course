@@ -1,14 +1,13 @@
-"""
-Request data from Star Wars API.
-
-https://swapi.co/
-"""
 import click
 from click import ClickException, BadParameter
 import requests
 
 
 def get_name(num):
+    """Get name of character.
+
+    Returns None if the character was not found.
+    """
     r = requests.get('https://swapi.co/api/people/{:d}'.format(num))
     if r.status_code == 404:
         return None
@@ -20,8 +19,9 @@ def get_name(num):
 @click.command()  # description='Get character names from Star Wars API')
 @click.argument('num', type=int, required=True)
 def main(num):
-    #if num <= 0:
-    #    raise BadParameter('Numbers start at 0')
+    """Get character names from Star Wars API. (https://swapi.co/)"""
+    if num <= 0:
+        raise BadParameter('Numbers start at 0')
     
     name = get_name(num)
     if name is None:
@@ -31,4 +31,3 @@ def main(num):
 
 
 main()
-

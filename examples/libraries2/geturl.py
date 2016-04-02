@@ -1,22 +1,26 @@
-"""
-"""
 import sys
 import click
+from click import ClickException
 import requests
 
 
-def print_error(msg):
-    print('Error: ' + msg, file=sys.stderr)
+def print_headers(response):
+    for name, value in sorted(response.headers.items()):
+        print('{}: {}'.format(name, value))
 
 
 @click.command()
 @click.argument('url')
-def main(url):
+@click.option('--head', is_flag=True, help='Print headers instead of content')
+def main(url, head):
+    """A very basic version of curl."""
     r = requests.get(url)
     if r.ok:
-        print(r.text, end='')            
+        if head:
+            print_headers(r)
+        else:
+            print(r.text, end='')
     else:
-        print_error('{} {}'.format(r.status_code, r.reason))
-
+        raise ClickException('{} {}'.format(r.status_code, r.reason))
         
 main()
