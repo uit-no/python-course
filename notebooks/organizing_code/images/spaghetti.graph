@@ -1,4 +1,4 @@
 ## Spaghetti Code
-main():config
-read_file():config#read_file(config)
-main():config
+main() > config
+read_file() > config : read_file(config)
+main() > config

@@ -4,6 +4,21 @@ from click import BadParameter
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def parse_edge(line):
+    # Remove all whitespace.
+    line = ''.join(line.split())
+
+    if ':' in line:
+        edge, label = line.split(':', 1)
+    else:
+        edge = line
+        label = ''
+
+    a, b = edge.split('>')
+
+    return a, b, label
+
+
 # make_graph(text)
 def parse_graph(text):
     graph = nx.DiGraph()
@@ -16,15 +31,10 @@ def parse_graph(text):
             continue
 
         if line.startswith('##'):
-            label = line.lstrip('#').strip()
+            title = line.lstrip('#').strip()
         else:
-            if '#' in line:
-                edge, label = line.split('#', 1)
-            else:
-                edge = line
-                label = None
+            a, b, label = parse_edge(line)
 
-            a, b = edge.split(':')
             graph.add_node(a)
             graph.add_node(b)
             graph.add_edge(a, b)
