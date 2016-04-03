@@ -4,9 +4,9 @@
 Installation
 ============
 
-You need a recent version of Python 3 installed. At the very least, version 3.3.
-Version 3.5 is recommended. You can check the version you have installed
-with::
+You need a recent version of Python 3 installed as well as a couple of packages
+that we will use in the course (see below). At the very least, version 3.3.
+Version 3.5 is recommended. You can check the version you have installed with::
 
   $ python3 --version
 
