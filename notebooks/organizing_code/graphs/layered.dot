@@ -1,0 +1,12 @@
+digraph {
+    graph [fontname="Sans-Serif"];
+    node [fontname="Sans-Serif" style="filled" fillcolor="#eeeeee"];
+    edge [fontname="Sans-Serif"];
+    
+    "main()" -> "read_config()";
+    "main()" -> "read_data()"
+    "read_data()" -> "parse_line()";
+    "parse_line()" -> "parse_something()";
+    "parse_line()" -> "check_header()";
+    "main()" -> "write_image()";
+}

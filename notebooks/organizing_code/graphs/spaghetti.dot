@@ -1,0 +1,5 @@
+digraph {
+        node [fontname="Sans-Serif" style="filled" fillcolor="#eeeeee"];
+        edge [fontname="Sans-Serif"];
+
+}
