@@ -3,6 +3,10 @@
 Exercises
 =========
 
+We will work on these exercises during
+the course. Do not worry about them before
+the course.
+
 Below you find the source code for the exercises.
 Copy and paste them into a file called e.g. ``basics.py``.
 It is OK to copy all or just one or two exercises
