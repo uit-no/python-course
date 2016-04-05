@@ -31,9 +31,8 @@ The older the better?
 
 
 
-* Which Version?
 
-Not so much! 
+* Not so much! 
 
 .image old-car.jpeg 400 _
 
@@ -163,7 +162,7 @@ Which uses pydoc to generate its documentation as text on the console
 	    Return the cosine of x (measured in radians).
          
 
-	$ pydoc len
+	$ >>> help(len)
 	Help on built-in function len in module builtins:
 	
 	len(obj, /)
@@ -407,7 +406,7 @@ Or loops can be interrupted with _break_
 
 Not really mathematical functions but close enough
 
-	def function-name(Parameter list):
+	def function_name(parameters, go, here):
 	    statements, i.e. the function body
 
 
@@ -455,11 +454,10 @@ Common use case:
 - open a file 
 - read the content
 - _do_something_useful_™_
-- write the result 
-- or print it to stdout
+- print it to stdout
 
 
-Example: opena file and print all the words longer than _x_
+Example: open a file and print all the words longer than _x_
 
 
 
