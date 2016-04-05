@@ -80,6 +80,12 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 
+<img src="img/nobody-can-read.jpg" style="width: 500px;"/>
+
+- https://twitter.com/ThePracticalDev/status/710156980535558144
+
+---
+
 ## Zen of functions
 
 - Functions should be short
@@ -133,6 +139,12 @@ def test_fibonacci_series():
 <img src="img/unit-testing.jpg" style="width: 500px;"/>
 
 - https://twitter.com/dave1010/status/613601365529657344
+
+---
+
+## Motivation
+
+<img src="img/debugging.gif" style="width: 500px;"/>
 
 ---
 
