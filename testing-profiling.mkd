@@ -1,0 +1,218 @@
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+
+# Python course: Testing and profiling
+
+## Radovan Bast
+
+High Performance Computing Group,
+UiT The Arctic University of Norway
+
+Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Code examples: [OSI](http://opensource.org)-approved [MIT license](http://opensource.org/licenses/mit-license.html).
+
+---
+
+layout: false
+
+## PEP8
+
+```python
+new_list = []
+for x in old_list:
+    if x > 5:
+        y = do_something(x)
+        new_list.append(y)
+```
+
+```python
+new_list=[];
+for x in old_list:
+ if x>5:y=do_something(x);new_list.append(   y);
+```
+
+- Style guidelines
+- https://www.python.org/dev/peps/pep-0008/
+- Also useful: Google Python Style Guide https://google.github.io/styleguide/pyguide.html
+- Consider the following code snippets:
+- You can check whether your code is PEP8 conform:
+```
+$ pep8 my_script.py
+```
+- Indent by 4 spaces
+- Do not use tabs
+
+---
+
+```
+$ python
+
+Python 3.5.1 (default, Mar  3 2016, 09:29:07)
+[GCC 5.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> import this
+
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
+
+---
+
+## Virtual Environments and Anaconda
+
+- There are many ways to install Python packages (apt, yum, brew, MacPorts, pip, easy_install, ...)
+- The two recommended ways are using Virtual Environments or Anaconda/Miniconda
+- http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+```python
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install some_package
+$ pip install -r requirements.txt
+```
+
+- Disposable isolated environments
+- No need for root password
+
+---
+
+## Test-driven development
+
+```python
+def fibonacci_series(n):
+    """
+    Compute the Fibonacci series.
+    """
+    return None
+
+
+def test_fibonacci_series():
+    assert fibonacci_series(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+
+---
+
+## Tests are no guarantee
+
+<img src="img/unit-testing.jpg" style="width: 500px;"/>
+
+- https://twitter.com/dave1010/status/613601365529657344
+
+---
+
+## Motivation
+
+### Code quality
+
+- As projects grow, it becomes easier to break things without noticing immediately
+- Testing helps detecting errors early
+- Interpreted dynamically typed imperative languages need to be tested
+- We publish scientific papers based on scientific code
+
+### Developers
+
+- Satisfying instant visual feedback
+- Avoid "gold-plating" the code
+
+---
+
+## Motivation
+
+### External contributors
+
+- Easier for external developers to contribute to the project
+- Tests can be good documentation; up to date by definition
+
+### Managing complexity
+
+- Well structured code is easy to test
+- Unit tests sharpen and document interfaces
+- Unit tests guide us towards good code structure
+
+---
+
+template: inverse
+
+## Imperfect tests run frequently are better than perfect tests which are never written
+
+---
+
+## Pedestrian approach
+
+```python
+def fibonacci_series(n):
+    """
+    Compute the Fibonacci series.
+    """
+    return None
+
+
+def test_fibonacci_series():
+    assert fibonacci_series(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+
+if __name__ == '__main__':
+    test_fibonacci_series()
+```
+
+- Better approach: Use a test runner like pytest (live demo).
+
+---
+
+## Fun: Jenkins "Extreme Feedback" Contraption
+
+https://github.com/codedance/Retaliation
+
+"Retaliation is a Jenkins CI build monitor that automatically coordinates a
+foam missile counter-attack against the developer who breaks the build. It does
+this by playing a pre-programmed control sequence to a USB Foam Missile
+Launcher to target the offending code monkey."
+
+<img src="img/launcher.jpg" style="width: 400px;"/>
+
+---
+
+## When do we want to optimize the code?
+
+- Code is too slow
+- Memory demand is too high
+
+## Profile first, optimize later
+
+- Before you invest money or time, identify the problem
+- Here insert famous Donald Knuth quote
+- Before solving the problem, verify whether it is worth it
+
+---
+
+## Profiling
+
+<img src="img/profile.png" style="width: 200px;"/>
+
+- Benchmark and profile before optimizing
+- https://docs.python.org/3/library/profile.html (cProfile)
+- https://github.com/rkern/line_profiler
+- https://pypi.python.org/pypi/memory_profiler/
