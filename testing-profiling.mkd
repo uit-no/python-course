@@ -37,7 +37,6 @@ for x in old_list:
 - Style guidelines
 - https://www.python.org/dev/peps/pep-0008/
 - Also useful: Google Python Style Guide https://google.github.io/styleguide/pyguide.html
-- Consider the following code snippets:
 - You can check whether your code is PEP8 conform:
 ```
 $ pep8 my_script.py
@@ -81,6 +80,12 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 
+<img src="img/nobody-can-read.jpg" style="width: 250px;"/>
+
+- https://twitter.com/ThePracticalDev/status/710156980535558144
+
+---
+
 ## Zen of functions
 
 - Functions should be short
@@ -92,7 +97,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ## Virtual Environments and Anaconda
 
-- There are many ways to install Python packages (apt, yum, brew, MacPorts, pip, easy_install, ...)
+- There are many ways to install Python packages (apt, yum, brew, pacman, MacPorts, pip, easy_install, ...)
 - The two recommended ways are using Virtual Environments or Anaconda/Miniconda
 - http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
@@ -100,11 +105,16 @@ Namespaces are one honking great idea -- let's do more of those!
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip install some_package
-$ pip install -r requirements.txt
 ```
 
 - Disposable isolated environments
-- No need for root password
+- No need for root permissions
+
+- Good practice to collect requirements into a file called requirements.txt
+
+```python
+$ pip install -r requirements.txt
+```
 
 ---
 
@@ -129,6 +139,12 @@ def test_fibonacci_series():
 <img src="img/unit-testing.jpg" style="width: 500px;"/>
 
 - https://twitter.com/dave1010/status/613601365529657344
+
+---
+
+## Motivation
+
+<img src="img/debugging.gif" style="width: 500px;"/>
 
 ---
 
