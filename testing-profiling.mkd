@@ -81,6 +81,15 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 
+## Zen of functions
+
+- Functions should be short
+- Functions should do only one thing, and do it well
+- Functions should have a docstring
+- Document what a function does, not how it does it
+
+---
+
 ## Virtual Environments and Anaconda
 
 - There are many ways to install Python packages (apt, yum, brew, MacPorts, pip, easy_install, ...)
