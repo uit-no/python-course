@@ -10,7 +10,7 @@ tup = (1,2,3,4)
 
 print('t' in text)
 
-print("Hamburg" in lst)
+print("Hamburg" not in lst)
 
 print("Hamburg" in city)
 

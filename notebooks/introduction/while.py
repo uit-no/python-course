@@ -5,8 +5,5 @@ num = 0
 while num < 5:
     print(num)
     num = num +1
-else:
-    print("counted some, now clean up!")
-    num = 0
 
 print("more code here...")

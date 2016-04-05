@@ -23,7 +23,7 @@ giacomo.tartari@uit.no
 
 
 
-* Which Version?
+* Python 2 or 3?
 
 The older the better?
 
@@ -46,7 +46,7 @@ Not so much!
 
 - multi-paradigm: object-oriented, imperative, functional, procedural, reflective
 
-- dynamic and strong typed (duck)
+- dynamic and strongly typed (duck)
 
 - garbage collected
 
@@ -62,7 +62,7 @@ Not so much!
 
 * Just code it!
 
-Open Your favourite editor 
+Open your favourite editor 
 
 Type:
 
@@ -103,6 +103,8 @@ and executes it on the computer.
 * Interactive shell (REPL)
 
 
+_Read_Evaluate_Print_Loop_
+
 Open your terminal and type python3
 
 
@@ -110,6 +112,11 @@ Now type some python statements
 
 
 Exit with CTRL+D
+
+
+
+
+
 
 
 * pydoc and help()
@@ -140,7 +147,30 @@ Which uses pydoc to generate its documentation as text on the console
 	      - os.curdir is a string representing the current directory ('.' or ':')
 	      - os.pardir is a string representing the parent directory ('..' or '::')
 		  ...
+
+
+
+
+
+* pydoc and help()
+
+	$ pydoc math.cos
+	Help on built-in function cos in math:
 	
+	math.cos = cos(...)
+	    cos(x)
+	
+	    Return the cosine of x (measured in radians).
+         
+
+	$ pydoc len
+	Help on built-in function len in module builtins:
+	
+	len(obj, /)
+	    Return the number of items in a container.
+
+
+
 
 * Operators
 
@@ -166,7 +196,7 @@ Declaring a variable is easy in python
 
 * More Variables
 
-Python is a dynamic typed language
+Python is a dynamically typed language
 
 .play vars2.py 2,$
 
@@ -328,8 +358,6 @@ For loops look like this:
 
 	 for <variable> in <sequence>:
 	 	<statements>
-	 else:
-	 	<statements>
 
 .play for1.py 2,$
 
@@ -352,16 +380,60 @@ Or loops can be interrupted with _break_
 
 
 
+
+
 * Functions
 
-TODO define a function and call it
+Not really mathematical functions but close enough
+
+	def function-name(Parameter list):
+	    statements, i.e. the function body
+
+
+                       
+
+	def do_something(todo_list):
+		for thing in todo_list:
+			print(thing)
+
+
+
+	result = do_something(my_list)
+	
+
+
+
+
+
+* Functions
+
+
+.play func1.py 2,$
 
 
 
 
 * Import and modules
 
+How do I reuse useful code?
+
+You put it into a module and then import it?
+
+
+.play import1.py 2,$
+
+And the batteries are included 
+
+.play import2.py 2,$
 
 
 
+* Operation on files
+
+Common use case:
+- open a file 
+- read the content
+- _do_something_™_
+- write the result 
+- or print it to stdout
 

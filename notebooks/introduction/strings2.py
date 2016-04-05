@@ -2,7 +2,7 @@
 
 text = "Interesting text"
 
-print(text.split(" "))
+print(text.split())
 
 print(text.endswith("xt"))
 
