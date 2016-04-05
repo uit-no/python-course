@@ -80,7 +80,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 
-<img src="img/nobody-can-read.jpg" style="width: 250px;"/>
+<img src="img/nobody-can-read.jpg" style="width: 350px;"/>
 
 - https://twitter.com/ThePracticalDev/status/710156980535558144
 
@@ -146,13 +146,14 @@ def test_fibonacci_series():
 
 <img src="img/debugging.gif" style="width: 500px;"/>
 
+- As projects grow, it becomes easier to break things without noticing immediately
+
 ---
 
 ## Motivation
 
 ### Code quality
 
-- As projects grow, it becomes easier to break things without noticing immediately
 - Testing helps detecting errors early
 - Interpreted dynamically typed imperative languages need to be tested
 - We publish scientific papers based on scientific code
