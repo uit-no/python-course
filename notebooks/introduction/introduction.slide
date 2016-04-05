@@ -451,9 +451,9 @@ And the batteries are included
 
 A module is just a Python file.
 
-Put this in simplemath.py:
+Put this in _simplemath.py_
 
-.play simplemath.py 2,$
+.code simplemath.py 2,$
 
 You can now use it like this:
 

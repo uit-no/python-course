@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import simplemath
 from simplemath import mul, ALMOST_PI
 
