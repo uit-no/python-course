@@ -437,15 +437,29 @@ Not really mathematical functions but close enough
 
 How do I reuse useful code?
 
-You put it into a module and then import it?
-
+Python libraries are made up of in modules
 
 .play import1.py 2,$
 
-And the batteries are included 
+And the batteries are included
 
 .play import2.py 2,$
 
+
+
+* Making your own module
+
+A module is just a Python file.
+
+Put this in simplemath.py:
+
+.play simplemath.py 2,$
+
+You can now use it like this:
+
+.play using_simplemath.py 2,$
+
+Always put import statements at the top of the file.
 
 
 * Operation on files
