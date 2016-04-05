@@ -1,0 +1,284 @@
+Introduction to Python
+6 Apr 2016
+
+Giacomo Tartari
+Engineer, UiT
+giacomo.tartari@uit.no
+
+
+* Python
+
+
+* Brief History
+
+- In February 1991, Guido Van Rossum published the code (version 0.9.0)
+
+- Python 1.0 - January 1994
+
+- Python 2.0 - October 16, 2000
+
+- Python 3.0 - December 3, 2008
+
+- Python 3.5 - September 13, 2015
+
+
+
+* Which Version?
+
+The older the better?
+
+.image vintage-car.jpeg 400 _
+
+
+
+* Which Version?
+
+Not so much! 
+
+.image old-car.jpeg 400 _
+
+
+
+
+* Features
+
+- interpreted
+
+- multi-paradigm: object-oriented, imperative, functional, procedural, reflective
+
+- dynamic and strong typed (duck)
+
+- garbage collected
+
+- semantic indentation
+
+
+
+* Hello World
+
+
+.play hello.py 3
+
+
+* Just code it!
+
+Open Your favourite editor 
+
+Type:
+
+	print("Hello, World!")
+
+Save as hello.py
+
+On the terminal type:
+
+	python3 hello.py
+
+
+* Execution 
+
+	python3 script.py
+
+Or add *#!/usr/bin/env*python3* as first line
+	
+
+	chmod +x script.py
+
+	./script.py
+
+
+
+
+* The interpreter
+
+When you run python code
+
+you run a program that
+
+reads your script (text and human readable)
+
+and executes it on the computer.
+
+
+* Interactive shell (REPL)
+
+
+Open your terminal and type python3
+
+
+Now type some python statements
+
+
+Exit with CTRL+D
+
+
+* pydoc and help()
+
+
+
+The built-in function help() invokes the online help system
+Which uses pydoc to generate its documentation as text on the console
+
+
+	$ pydoc os
+	Help on module os:
+	
+	NAME
+	    os - OS routines for NT or Posix depending on what system we're on.
+	
+	FILE
+	    /usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py
+	
+	MODULE DOCS
+	    http://docs.python.org/library/os
+	
+	DESCRIPTION
+	    This exports:
+	      - all functions from posix, nt, os2, or ce, e.g. unlink, stat, etc.
+	      - os.path is one of the modules posixpath, or ntpath
+	      - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos'
+	      - os.curdir is a string representing the current directory ('.' or ':')
+	      - os.pardir is a string representing the parent directory ('..' or '::')
+		  ...
+	
+
+* Built in Types
+
+- int, float, boolean etc...
+- string
+- list
+- dictionary
+- sets
+- tuples
+
+
+* Variables
+
+Declaring a variable is easy in python
+
+.play vars.py 3,$
+
+
+* More Variables
+
+Python is a dynamic typed language
+
+.play vars2.py 2,$
+
+
+
+Try the type() built in function on your terminal
+
+
+* Strings and Lists
+
+Strings
+
+.play seq.py 2,$
+
+Lists
+
+.play seq2.py 2,$
+
+
+
+
+* More strings
+
+Strings can be defined in different ways
+
+.play strings1.py 2,$
+
+
+
+* String functionalities
+
+String objects are packed with useful functionalities
+
+
+.play strings2.py 2,$
+
+
+
+
+
+* Slicing
+
+.play seq3.py 2,$
+
+
+
+
+
+* Concatenation
+
+	text = "Interesting text!"
+	
+	lst = ["Vienna", "London", "Paris", "Berlin", "Zurich", "Hamburg"]
+
+String
+.play seq4.py 7
+
+Lists
+.play seq5.py 7,$
+
+
+
+
+* Dictionaries
+
+.play dict1.py 2,$
+
+
+* Insert and remove
+
+
+.play dict2.py 2,$
+
+
+
+* Sets
+
+.play set1.py 2,$
+
+
+
+
+* Tuples
+
+
+
+
+
+
+* Is present?
+
+
+TODO check for presence in lists, dicts, sets
+
+
+
+* Conditional Statements
+
+
+TODO introduce if & co.
+
+
+* For loops
+
+TODO loop around lists 
+
+
+* Functions
+
+TODO define a function and call it
+
+
+
+
+* Import and modules
+
+
+
+
+
