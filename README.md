@@ -1,4 +1,4 @@
 # Python course exercise material and website
 
-- `master` branch deployed to Read the Docs: http://python-course-uit.readthedocs.org
-- Website lives on the `gh-pages` branch: http://uit-no.github.io/python-course/
+- The master branch is deployed to Read the Docs: http://python-course-uit.readthedocs.org
+- Website lives on the gh-pages branch and is served via http://uit-no.github.io/python-course/
