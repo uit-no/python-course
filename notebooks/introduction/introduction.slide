@@ -2,7 +2,7 @@ Introduction to Python
 6 Apr 2016
 
 Giacomo Tartari
-Engineer, UiT
+Engineer/PhD student, UiT
 giacomo.tartari@uit.no
 
 
@@ -172,9 +172,6 @@ Which uses pydoc to generate its documentation as text on the console
 
 
 
-* Operators
-
-TODO
 
 
 * Built in Types
@@ -186,6 +183,29 @@ TODO
 - sets
 - tuples
 
+
+* Operators
+
+	+ Addition	
+	- Subtraction	
+	* Multiplication
+	/ Division
+	% Modulus
+	** Exponent	
+
+	and  And
+	or  Or
+	
+	==	Equality	
+	!=	Inequality
+	>	Greater then
+	<	Lesser then
+	>=	Greater or equal
+	<=  Lesser or equal
+
+	+=  Increment
+	-=  Decrement
+	etc...
 
 * Variables
 
@@ -203,6 +223,7 @@ Python is a dynamically typed language
 
 
 Try the type() built in function on your terminal
+
 
 
 * Strings and Lists
@@ -433,7 +454,28 @@ And the batteries are included
 Common use case:
 - open a file 
 - read the content
-- _do_something_™_
+- _do_something_useful_™_
 - write the result 
 - or print it to stdout
+
+
+Example: opena file and print all the words longer than _x_
+
+
+
+
+* Operation on files
+
+.play import3.py
+
+
+
+
+
+* Operation on files
+
+.play import4.py
+
+
+
 
