@@ -80,7 +80,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 
-<img src="img/nobody-can-read.jpg" style="width: 400px;"/>
+<img src="img/nobody-can-read.jpg" style="width: 250px;"/>
 
 - https://twitter.com/ThePracticalDev/status/710156980535558144
 
