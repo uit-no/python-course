@@ -2,21 +2,20 @@
 
 import os
 
-x = 4
-res = []
+result = []
 
 with open('loremipsum', encoding='utf-8') as fil:
     words = fil.read().split()
 
-    for w in words:
-        if len(w) > x:
-            if w.endswith(".") or w.endswith(","):
-                res.append(w[:-1])
+    for word in words:
+        if len(word) > 4:
+            if word.endswith(".") or word.endswith(","):
+                result.append(word[:-1])
             else:
-                res.append(w)
+                result.append(word)
 
-for w in res:
-    print(w)
+for word in result:
+    print(word)
 
 
 

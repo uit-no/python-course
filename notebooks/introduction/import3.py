@@ -2,14 +2,13 @@
 
 import os
 
-x = 4
 
 with open('loremipsum', encoding='utf-8') as fil:
     words = fil.read().split()
 
-    for w in words:
-        if len(w) > x:
-            print(w)
+    for word in words:
+        if len(word) > 4:
+            print(word)
 
 
 
