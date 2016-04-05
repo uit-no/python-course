@@ -217,13 +217,14 @@ def test_password_good():
     good_passwords = ['Aa0#abcd', 'Zz9&0000', 'ABrt#&%aabb00']
 
     for pw in good_passwords:
-        assert password_good(pw) == True
+        assert password_good(pw)
 
     bad_passwords = ['Aa0#', 'Zz9&000', 'ABrtaabb00', 'rt#&%aabb00',
                      'AB#&%001', 'ABrt#&%aabb']
 
     for pw in bad_passwords:
-        assert password_good(pw) == False
+        assert not password_good(pw)
+
 
 # ------------------------------------------------------------------------------
 
@@ -236,7 +237,7 @@ def generate_password():
     """
     return None
 
- 
+
 def test_generate_password():
 
     # generate list of 10 random passwords
@@ -249,5 +250,4 @@ def test_generate_password():
 
     # test all passwords in list
     for pw in pw_list:
-        assert password_good(pw) == True
-
+        assert password_good(pw)
