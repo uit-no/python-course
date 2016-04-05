@@ -7,4 +7,5 @@ Python course material
    :maxdepth: 1
 
    installation.rst
-   exercises.rst
+   exercises/day1.rst
+   exercises/day2.rst
