@@ -24,21 +24,6 @@ def test_reverse_string():
 
 # ------------------------------------------------------------------------------
 
-def histogram(l):
-    """
-    Converts a list of tuples into a simple string histogram.
-    """
-    return None
-
-
-def test_histogram():
-    assert histogram([('a', 2), ('b', 5), ('c', 1)]) == """a: ##
-b: #####
-c: #"""
-
-
-# ------------------------------------------------------------------------------
-
 def get_word_lengths(s):
     """
     Returns a list of integers representing
@@ -115,6 +100,21 @@ def test_read_column():
 
     # we remove the temporary file
     os.unlink(file_name)
+
+
+# ------------------------------------------------------------------------------
+
+def histogram(l):
+    """
+    Converts a list of tuples into a simple string histogram.
+    """
+    return None
+
+
+def test_histogram():
+    assert histogram([('a', 2), ('b', 5), ('c', 1)]) == """a: ##
+b: #####
+c: #"""
 
 
 # ------------------------------------------------------------------------------
