@@ -191,3 +191,63 @@ def simple_zip(l1, l2):
 def test_simple_zip():
 
     assert simple_zip(['a', 'b', 'c'], [1, 2, 3]) == [('a', 1), ('b', 2), ('c', 3)]
+
+
+# ------------------------------------------------------------------------------
+
+def password_good(password):
+    """
+    Implement a function that tests if the input string is a "good" password.
+
+    A "good" password should:
+
+    - Be at least 8 characters long
+    - Contain at least one upper-case letter [A-Z]
+    - Contain at least one lower-case letter [a-z]
+    - Contain at least one digit [0-9]
+    - Contain at least one special character [#%&]
+
+    The function should return True if the password is good, False otherwise.
+    """
+    return None
+
+
+def test_password_good():
+
+    good_passwords = ['Aa0#abcd', 'Zz9&0000', 'ABrt#&%aabb00']
+
+    for pw in good_passwords:
+        assert password_good(pw) == True
+
+    bad_passwords = ['Aa0#', 'Zz9&000', 'ABrtaabb00', 'rt#&%aabb00',
+                     'AB#&%001', 'ABrt#&%aabb']
+
+    for pw in bad_passwords:
+        assert password_good(pw) == False
+
+# ------------------------------------------------------------------------------
+
+def generate_password():
+    """
+    Write a function that generates a random "good" password. The generated
+    password should return True if checked by password_good.
+
+    For easy to remember strong passwords see: https://xkcd.com/936/
+    """
+    return None
+
+ 
+def test_generate_password():
+
+    # generate list of 10 random passwords
+    pw_list = []
+    for _ in range(10):
+        pw_list.append(generate_password())
+
+    # passwords should be random, test for duplicates
+    assert len(pw_list) == len(set(pw_list))
+
+    # test all passwords in list
+    for pw in pw_list:
+        assert password_good(pw) == True
+
