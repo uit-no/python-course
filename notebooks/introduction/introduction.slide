@@ -142,6 +142,11 @@ Which uses pydoc to generate its documentation as text on the console
 		  ...
 	
 
+* Operators
+
+TODO
+
+
 * Built in Types
 
 - int, float, boolean etc...
@@ -246,27 +251,105 @@ Lists
 
 * Tuples
 
+Tuples are immutable lists
 
+.play tuple1.py 2,$
 
 
 
 
 * Is present?
 
+There is an easy way to check is an element is present
 
-TODO check for presence in lists, dicts, sets
+
+.play present.py 2,$
 
 
 
 * Conditional Statements
 
+if _this_ then _that_
 
-TODO introduce if & co.
+If checks on some boolean conditions, e.g.:
+- is this number greater than 10?
+- is this file present in the working directory?
+- is this item in the list?
+
+While _this_ and _that_ are block of code
 
 
-* For loops
 
-TODO loop around lists 
+* If
+
+
+.play if1.py 2,$
+
+
+* Code Blocks
+
+.play if2.py 2,$
+
+* More conditions
+
+.play if3.py 2,$
+
+
+
+
+* Loops
+
+Loops are used to do _something_ a number of times
+
+Or until a condition is satisfied 
+
+The number or the condition doesn't have to be known when you write the code 
+
+
+There are typically two kind of loops:
+
+- for 
+- while
+
+
+* While
+
+While loops a block of code _while_ a condition is satisfied
+
+
+.play while.py 2,$
+
+
+
+* For
+
+For loops look like this:
+
+
+	 for <variable> in <sequence>:
+	 	<statements>
+	 else:
+	 	<statements>
+
+.play for1.py 2,$
+
+
+* Continue and Break
+
+Loops iterations can be skipped with _continue_
+
+Or loops can be interrupted with _break_
+
+.play for2.py 2,$
+
+
+
+
+* Continue and Break 
+
+
+.play for3.py 2,$
+
 
 
 * Functions
