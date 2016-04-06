@@ -5,8 +5,8 @@ def make_dog_class():
       which is decremented by 1 when time advances.
     * when a dog meets another dog, both dogs' happiness is reset to 100.
     * when a dog meets a fish, the dog feeds and the fish dies.
-      * Note: "when a dog meets a fish" does not have to be the same as "when a
-        fish meets a dog" - but extra kudos to you if you can make it so.
+      * Note: "when a dog meets a fish" need not have the same effect as "when
+        a fish meets a dog" - but extra kudos to you if you can make it so.
     """
 
     # The classes Pet and Fish are taken from the notebook. copy and paste (and
