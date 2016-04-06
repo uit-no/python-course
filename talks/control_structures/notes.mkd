@@ -1,7 +1,14 @@
-examples:
+examples and exercies:
 
 animals
+animals without and
 short words (<= 3)
+
+
+for key, value in {'horses': 2, 'ducks': 3}.items():
+    print('There are {} {}.'.format(value, key))
+
+
 
 
 Show how you can cut and paste examples into a terminal.

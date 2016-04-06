@@ -7,6 +7,44 @@ Ole Martin Bjørndalen
 
 ---
 
+## Iteration
+
+```python
+i = 1
+while i < 4:
+   print(i)
+   i += 1
+```
+
+is better written as:
+
+```python
+for i in range(1, 4):
+    print(i)
+```
+
+Both output:
+
+```
+1
+2
+3
+```
+
+
+## More Iteration
+
+You can iterate over any collection:
+
+```python
+for word in ['horse', 'duck', 'rabbit']:
+    print(word)
+
+for key, value in {'horses': 2, 'ducks': 3}.items():
+    print('There are {} {}.'.format(value, key))
+```
+
+
 
 ## A Simple Generator
 
