@@ -2,7 +2,7 @@
 
 def simple_generator():
     """
-    Yield horse, cow and mouse.
+    Yield 'horse', 'cow' and 'mouse'.
     (Don't return a list.)
     """
     pass
@@ -41,6 +41,9 @@ def test_word_lengths():
     words = ['lorem', 'ipsum', 'python', 'sit', 'amet']
     lengths = [5, 5, 6, 3, 4]
     assert word_lengths(words) == lengths
+
+
+# ------------------------------------------------------------------------
 
 
 def simple_filter(f, l):
