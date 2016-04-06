@@ -223,31 +223,12 @@ if is_student(person):
 
 
 ---
-
 ## Naming Conventions
 
 ``_underscore``.
 
 * internal to module (or object)
 * not enforced, but is a clue that it's not a part of the API
-
-
----
-
-## Don't Overuse Classes
-
-https://www.youtube.com/watch?v=o9pEzgHorH0
-
-Classes are great when you need them but:
-
-* Python is object oriented, not class oriented
-* don't use classes for everything
-* if you have a class with only one method it should be a function
-* use dictionaries instead of objects
-* use modules and packages to group related things together
-* use dyck typing
-* use embedding instead of subclassing
-* don't use a class as a name space. That's what modules are for
 
 
 ---
@@ -273,6 +254,7 @@ from .parser import Parser, parse, parse_all
 * avoid global variables (show in graph)
 * no global config or args object
 * each module is a library
+
 
 * no global object that you pass around everywhere
 

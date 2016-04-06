@@ -1,3 +1,5 @@
+# isdgoijsijg
+
 def simple_generator():
     pass
 
@@ -6,20 +8,29 @@ def test_simple_generator():
     assert list(simple_generator()) == [0, 1, 2]
 
 
-# ---------------------------------------------------------------------------
+# ------------------------------------------------------------------------
+
+
+def simple_range(limit):
+    pass
+
+
+def test_simple_range():
+    assert list(simple_range(2)) == [0, 1]
+    assert list(simple_range(3)) == [0, 1, 2]
+
+
+# ------------------------------------------------------------------------
 
 
 # List comprehensions.
 
-def remove_sheep(animals):
-    """Returns a list of animals without any sheep."""
-    pass
+def word_lengths(words):
+    return [len(word) for word in words]
 
 
-def test_remove_sheep():
-    animals = ['horse', 'duck', 'sheep', 'pig', 'sheep', 'sheep']
-    no_sheep = ['horse', 'duck', 'pig']
-    assert remove_sheep(animals) == no_sheep
+def test_word_lengths():
+    assert word_lengths()
 
 
 # ---------------------------------------------------------------------------
