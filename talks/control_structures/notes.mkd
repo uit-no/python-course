@@ -1,3 +1,8 @@
+"You can iterate over anything"?
+
+filter() vs. list comprehension with `if`.
+
+
 # List comprehension
 # Dictionary comprehension
 # Set comprehension

@@ -7,46 +7,33 @@ Ole Martin Bjørndalen
 ---
 ## Iteration
 
+This:
+
 ```python
-i = 1
-while i < 4:
-   print(i)
-   i += 1
+animals = ['horse', 'dog', 'iguana']
+i = 0
+while i < len(animals):
+    print(animals[i])
+    i += 1
 ```
 
 is better written as:
 
 ```python
-for i in range(1, 4):
-    print(i)
+for animal in animals:
+    print(animal)
 ```
 
-Both output:
-
 ```
-1
-2
-3
+horse
+dog
+iguana
 ```
 
 ---
-## More Iteration
+## List Comprehensions
 
-You can iterate over any collection:
 
-```python
-for word in ['horse', 'duck', 'rabbit']:
-    print(word)
-
-animal_counts = {'horses': 2, 'ducks': 3}
-for animal, count in animal_counts.items():
-    print('There are {} {}.'.format(count, animal))
-```
-
-```
-There are 3 ducks.
-There are 2 horses.
-```
 
 ---
 ## A Simple Generator
