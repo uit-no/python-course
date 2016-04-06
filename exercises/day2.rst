@@ -3,21 +3,6 @@
 Exercises day 2
 ===============
 
-List comprehensions
--------------------
-
-Imagine you need a list of all Pythagorean triples up to n = 20 which happens
-to be (you remember the triangles from school)::
-
-  [(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15), (12, 16, 20)]
-
-Try to implement the list of all such triples
-using a list comprehension in one single line of Python code.
-Use a variable for the upper bound such that if you one day
-need all Pythagorean triples up to n = 2000 you only need to change
-one line of code.
-
-
 Higher-order functions
 ----------------------
 
@@ -26,83 +11,6 @@ Make the following tests green:
 .. literalinclude:: higher-order.py
    :language: python
    :linenos:
-
-Using the ``upper()`` method you can uppercase text:
-
-.. code-block:: python
-
-  assert 'zZzZzzZzzZzZ'.upper() == 'ZZZZZZZZZZZZ'
-
-Now try to uppercase a string using your ``simple_map()`` (replace the "?"
-with some meaningful code):
-
-.. code-block:: python
-
-  assert ''.join(simple_map(?, 'zZzZzzZzzZzZ')) == 'ZZZZZZZZZZZZ'
-
-
-Generators
-----------
-
-Implement a function ``simple_range(n)`` which returns a list ``[0, 1, 2, ..., n-1]`` such that
-(do not use the built-in ``range`` function):
-
-.. code-block:: python
-
-  assert simple_range(5) == [0, 1, 2, 3, 4]
-  assert simple_range(10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-Now what do you think will happen when you call ``simple_range(100000000)``?
-
-Rewrite your function using the generator pattern and discuss
-the advantages.
-
-
-Decorators
-----------
-
-Consider the following code:
-
-.. code-block:: python
-  :linenos:
-
-  def add(a, b):
-      return a + b
-
-  def subtract(a, b):
-      return a - b
-
-  i = add(2, 3)
-  j = subtract(2, 3)
-
-Now adapt the debug decorator such that when you decorate
-the ``subtract`` function and execute this script:
-
-.. code-block:: python
-  :linenos:
-  :emphasize-lines: 1-5,10
-
-  def debug(f):
-      def _decorator(*args, **kwargs):
-          response = f(*args, **kwargs)
-          return response
-      return _decorator
-
-  def add(a, b):
-      return a + b
-
-  @debug
-  def subtract(a, b):
-      return a - b
-
-  i = add(2, 3)
-  j = subtract(2, 3)
-
-You obtain::
-
-  $ python example.py
-
-  function "subtract" called with arguments: 2 3
 
 
 Classes
