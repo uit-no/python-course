@@ -1,0 +1,291 @@
+# Control Structures in Python
+
+Beyond ifs and buts.
+
+Ole Martin Bjørndalen
+
+---
+
+# Iterables
+
+You can iterate over any Python collection:
+
+```python
+# List
+for city in ['Tromsø', 'Bergen', 'Sarpsborg']:
+    print(city)
+
+# Set
+for item in {'horse', 'cow', 'chicken'}:
+    print(item)
+
+# Dictionary keys
+for key in mydict.keys():
+    print(key)
+```
+
+---
+
+# Generators
+
+You'll find this a lot in Python:
+
+```python
+for row in db_cursor:
+
+for msg in port:
+
+for item in list:
+
+for key in dictionary:
+```
+
+
+# Generators
+
+Let's say you want to loop over lines:
+
+```python
+with open('animals.txt') as file:
+    lines = file.readlines()
+    for line in lines:
+        if 'horse' in line:
+            print(line.rstrip())
+```
+
+```
+horse
+horse and badger
+```
+
+But this:
+
+* reads everything into memory at once
+* doesn't start iterating over lines until they're all read
+
+What if you have 7 fantasillion lines?
+
+---
+
+# Generators to the Rescue
+
+The file object is a generator. Iterating over it will yield line at a time:
+
+```python
+with open('animals.txt') as file:
+    for line in file:
+        if 'horse' in line:
+            print(line, end='')
+```
+
+```
+horse and badger
+horse
+```
+
+---
+
+# A Simple Generator
+
+
+```python
+def numbers():
+    yield 1
+    for n in [2, 3]:
+        yield n
+    yield from [4, 5, 6]
+
+for n in numbers():
+    print(n)
+```
+
+```python
+list(numbers())
+```
+
+
+---
+
+# Reimplementing the Line Generator
+
+```python
+def iter_lines(file):
+    while True:
+         line = file.readline()
+         if line = '':
+             # End of file.
+             return
+         else:
+             yield line
+
+with open('animals.txt') as file:
+    for line in iter_lines(file):
+        if 'horse' in line:
+            print(line, end='')
+
+horse and badger
+horse
+```
+
+Control switches in and out of the generator at ``yield``.
+
+```python
+# Files have a generator that loops over lines.
+for line in open('files/movie_quotes.txt'):
+    print(line)
+```
+
+
+---
+
+Generators allow you to iterate over infinite sequences.
+
+```python
+# Todo: find a good example.
+# (A loop with input() doesn't work well with Jupyter.)
+
+def user_input():
+    yield from ['These', 'are', 'lines']
+
+for line in iter_input():
+    print(line, 'backwards is', line[::-1])
+    print()
+
+print('*quit*')
+```
+
+```python
+def integers():
+    yield from [1, 2, 3]
+
+for n in integers():
+    print(n)
+```
+
+```python
+# Todo: converting to lists
+#    lines = list(gen)
+#    iter(something)
+```
+
+
+---
+
+# List Comprehensions
+
+A more convenient way to write loops
+
+```python
+lines = []
+for line in open('files/movie_quotes.txt'):
+    lines.append(line.strip().upper())
+
+print(lines)
+```
+
+```python
+# With a list comprehension:
+lines = [line.strip().upper() for line in open('files/movie_quotes.txt')]
+
+print(lines)
+```
+
+
+---
+
+# Generator Comprehensions
+
+Convenient way to write a generator.
+
+```python
+def print_lines(lines):
+    for line in lines:
+        print(line)
+
+file = open('files/movie_quotes.txt')
+gen = (line.strip() for line in file)
+print_lines(gen)
+print_lines(['Extra line 1', 'Extra line 2'])
+```
+
+---
+
+# Dictionary Comprehensions
+
+```python
+words = ['the', 'quick', 'brown', 'python']
+counts = {word: len(word) for word in words}
+print(counts)
+```
+
+---
+
+# Higher Order Functions
+
+* functions taking functions as arguments
+* functions returning functions
+* generally passing functions around
+
+---
+
+# Passing A Function to a Function
+
+---
+
+# Returning A Function from a Function
+
+---
+
+# Decorators
+
+---
+
+# Functional Style
+
+``map()``, ``filter()``, ``reduce()`` and ``partial()``
+
+```python
+def reverse(word):
+    return word[::-1]
+
+list(map(reverse, ['A', 'few', 'words']))
+```
+
+```python
+def is_short(word):
+    return len(word) < 3
+
+for word in filter(is_short, ['A', 'few', 'words']):
+    print(word)
+```
+
+
+---
+
+# How Functional Is Python?
+
+Python has:
+
+* first class functions
+* ``map()``, ``filter()``, ``reduce()`` and ``functools``
+* closures (``nonlocal``)
+* decorators
+
+but lacks:
+
+* tail recursion
+* function composition
+* full support for anonymous functions (but has named inner functions)
+
+
+---
+
+# Notes
+
+* enumerate()
+
+
+with animals as
+for lineno, line in enumerate(file, start=1):
+    print(lineno, line, end='')
+```
