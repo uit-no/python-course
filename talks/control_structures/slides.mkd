@@ -37,8 +37,6 @@ zebra
 ## Going Backwards
 
 ```python
-animals = ['cow', 'horse', 'zebra']
-
 for animal in reversed(animals):
     print(animal)
 ```
@@ -157,10 +155,11 @@ for record in db_cursor:
 for prime in primes():
 ```
 
-Useful when you
+Useful when you:
 
 * have more data than will fit in memory
 * have an infinite sequence
+* need to iterate over incoming data
 * want to break up a complex loop
 
 
