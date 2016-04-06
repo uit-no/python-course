@@ -1,8 +1,8 @@
 def make_dog_class():
     """
     Make a class `Dog` that satisfies the following conditions:
-    * a dog has an attribute `happiness` which is initially 100 and which is
-      decremented by 1 when time advances.
+    * a dog has an attribute `happiness` which is initially set to 100, and
+      which is decremented by 1 when time advances.
     * when a dog meets another dog, both dogs' happiness is reset to 100.
     * a dog is always hungrier than any other pet that is not a dog, regardless
       of the `hunger` attribute.
@@ -114,3 +114,6 @@ def test_define_hungry():
         assert x.is_hungry()
         assert Pet.get_hungry_pets() == {x}
         x.hunger = 0
+
+
+# TODO make it so that fish and dog have their own population.
