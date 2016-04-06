@@ -123,6 +123,9 @@ print({len(word) for word in ['and', 'a', 'few', 'more']})
 {1, 3, 4}
 ```
 
+(and generator comprehensions, but we'll get to those later.)
+
+
 ---
 ## Incomprehensions
 
@@ -132,6 +135,10 @@ Nesting comprehensions is a bad idea:
 print({uword: len(uword) for uword in [word for word in
       ['what', 'does', 'this', 'even', 'do?']]})
 ```
+
+
+
+
 
 
 ---
@@ -156,6 +163,7 @@ for n in numbers():
 1
 2
 ```
+
 
 ---
 ## A More Typical Generator
@@ -209,19 +217,25 @@ Control switches back and forth.
 
 
 ---
-## Collecting Generated Data
+## Converting To A List
 
 ```python
 def numbers():
     yield 1
     yield 2
-    yield 2
+    yield 3
 
-print(list(numbers()))
-print(set(numbers()))
+gen = numbers()
+print(gen)
+
+print(list(gen))
+print(list(gen))
 ```
 
 ```
+<generator object numbers at 0x7f54b1bfca68>
+[1, 2, 3]
+[]
 ```
 
 
