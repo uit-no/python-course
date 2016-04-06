@@ -1,3 +1,20 @@
+examples:
+
+animals
+short words (<= 3)
+
+
+Show how you can cut and paste examples into a terminal.
+
+
+* enumerate()
+
+
+with animals as
+for lineno, line in enumerate(file, start=1):
+    print(lineno, line, end='')
+
+
 def genlines():
     yield line
     yield line

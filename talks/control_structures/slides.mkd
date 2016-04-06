@@ -1,32 +1,226 @@
-# Control Structures in Python
+## Control Structures in Python
 
 Beyond ifs and buts.
 
 Ole Martin Bjørndalen
 
+
 ---
 
-# Iterables
 
-You can iterate over any Python collection:
+## A Simple Generator
+
+```python
+def numbers():
+    yield 1
+    yield 2
+
+for n in numbers():
+    print(n)
+```
+
+```
+1
+2
+```
+
+
+---
+
+
+## A More Typical Generator
+
+```python
+def even_numbers():
+    for n in range(10):
+        if n % 2 == 0:
+           yield n
+
+for n in even_numbers():
+    print(n)
+```
+
+```
+0
+2
+4
+6
+8
+```
+
+
+## What's Going On Here?
+
+```python
+def even_numbers():
+    for n in range(3):
+        print('(In generator)')
+        yield n
+
+for n in even_numbers():
+    print('(In main lopp)')
+    print(n)
+```
+
+```
+(In generator)
+(In main lopp)
+0
+(In generator)
+(In main lopp)
+1
+(In generator)
+(In main lopp)
+2
+```
+
+Control switches back and forth.
+
+
+---
+
+
+## Converting to a List
+
+```python
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+
+gen = numbers()
+print(gen)
+print(next(gen))
+print(list(gen))
+print(list(gen))
+```
+
+```
+<generator object numbers at 0x7fe655d25888>
+1
+[2, 3]
+[]
+```
+
+
+---
+
+
+## Filtering With Generators
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+def only_animals(words):
+    for word in words:
+        if is_animal(word):
+           yield word
+
+for animal in only_animals(['horse', 'cow', 'and', 'chicken']):
+    print(animal)
+```
+
+```
+horse
+cow
+chicken
+```
+
+
+---
+
+## ``map()``
+
+```
+def yell(word):
+    return word.upper() + '!'
+
+map(yell, ')
+``` 
+
+
+## ``filter()``
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+animals = filter(is_animal, ['horse', 'cow', 'and', 'chicken'])
+print(animals)
+print(list(animals))
+```
+
+```
+['horse', 'cow', 'chicken']
+```
+
+
+---
+
+
+## Filtering With Generators
+
+```python
+def iter_words(lines):
+    for line in lines:
+        for word in line.split():
+            yield word
+
+some_lines = ['one horse', 'and two chickens']
+for word in iter_words(some_lines):
+    print(word)
+```
+
+```
+one
+horse
+and
+two
+chickens
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Iterables
+
+An iterable is anything that can be iterated over. This includes
+Python collections:
 
 ```python
 # List
 for city in ['Tromsø', 'Bergen', 'Sarpsborg']:
     print(city)
-
-# Set
-for item in {'horse', 'cow', 'chicken'}:
-    print(item)
-
-# Dictionary keys
-for key in mydict.keys():
-    print(key)
 ```
+
+```python
+
+```
+
+and also objects that implement ``__iter__()``:
+
+```python
+for msg in port:
+    print(msg)
+```
+
+as well as generators, which we will come back to later.
 
 ---
 
-# Generators
+## Generators
 
 You'll find this a lot in Python:
 
@@ -40,8 +234,9 @@ for item in list:
 for key in dictionary:
 ```
 
+---
 
-# Generators
+## Generators
 
 Let's say you want to loop over lines:
 
@@ -67,7 +262,7 @@ What if you have 7 fantasillion lines?
 
 ---
 
-# Generators to the Rescue
+## Generators to the Rescue
 
 The file object is a generator. Iterating over it will yield line at a time:
 
@@ -85,7 +280,7 @@ horse
 
 ---
 
-# A Simple Generator
+## A Simple Generator
 
 
 ```python
@@ -103,10 +298,9 @@ for n in numbers():
 list(numbers())
 ```
 
-
 ---
 
-# Reimplementing the Line Generator
+## Reimplementing the Line Generator
 
 ```python
 def iter_lines(file):
@@ -129,20 +323,20 @@ horse
 
 Control switches in and out of the generator at ``yield``.
 
+# You can loop over lines in a file:
+
 ```python
-# Files have a generator that loops over lines.
 for line in open('files/movie_quotes.txt'):
     print(line)
 ```
-
 
 ---
 
 Generators allow you to iterate over infinite sequences.
 
 ```python
-# Todo: find a good example.
-# (A loop with input() doesn't work well with Jupyter.)
+## Todo: find a good example.
+## (A loop with input() doesn't work well with Jupyter.)
 
 def user_input():
     yield from ['These', 'are', 'lines']
@@ -163,15 +357,14 @@ for n in integers():
 ```
 
 ```python
-# Todo: converting to lists
-#    lines = list(gen)
-#    iter(something)
+## Todo: converting to lists
+##    lines = list(gen)
+##    iter(something)
 ```
-
 
 ---
 
-# List Comprehensions
+## List Comprehensions
 
 A more convenient way to write loops
 
@@ -184,16 +377,15 @@ print(lines)
 ```
 
 ```python
-# With a list comprehension:
+## With a list comprehension:
 lines = [line.strip().upper() for line in open('files/movie_quotes.txt')]
 
 print(lines)
 ```
 
-
 ---
 
-# Generator Comprehensions
+## Generator Comprehensions
 
 Convenient way to write a generator.
 
@@ -210,7 +402,7 @@ print_lines(['Extra line 1', 'Extra line 2'])
 
 ---
 
-# Dictionary Comprehensions
+## Dictionary Comprehensions
 
 ```python
 words = ['the', 'quick', 'brown', 'python']
@@ -220,7 +412,7 @@ print(counts)
 
 ---
 
-# Higher Order Functions
+## Higher Order Functions
 
 * functions taking functions as arguments
 * functions returning functions
@@ -228,19 +420,19 @@ print(counts)
 
 ---
 
-# Passing A Function to a Function
+## Passing A Function to a Function
 
 ---
 
-# Returning A Function from a Function
+## Returning A Function from a Function
 
 ---
 
-# Decorators
+## Decorators
 
 ---
 
-# Functional Style
+## Functional Style
 
 ``map()``, ``filter()``, ``reduce()`` and ``partial()``
 
@@ -259,10 +451,9 @@ for word in filter(is_short, ['A', 'few', 'words']):
     print(word)
 ```
 
-
 ---
 
-# How Functional Is Python?
+## How Functional Is Python?
 
 Python has:
 
@@ -276,16 +467,3 @@ but lacks:
 * tail recursion
 * function composition
 * full support for anonymous functions (but has named inner functions)
-
-
----
-
-# Notes
-
-* enumerate()
-
-
-with animals as
-for lineno, line in enumerate(file, start=1):
-    print(lineno, line, end='')
-```
