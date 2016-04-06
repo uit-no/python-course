@@ -79,3 +79,64 @@ print_lines(gen_lines())
 
 
 sorted()
+
+
+
+
+---
+
+## Higher Order Functions
+
+* functions taking functions as arguments
+* functions returning functions
+* generally passing functions around
+
+---
+
+## Passing A Function to a Function
+
+---
+
+## Returning A Function from a Function
+
+---
+
+## Decorators
+
+---
+
+## Functional Style
+
+``map()``, ``filter()``, ``reduce()`` and ``partial()``
+
+```python
+def reverse(word):
+    return word[::-1]
+
+list(map(reverse, ['A', 'few', 'words']))
+```
+
+```python
+def is_short(word):
+    return len(word) < 3
+
+for word in filter(is_short, ['A', 'few', 'words']):
+    print(word)
+```
+
+---
+
+## How Functional Is Python?
+
+Python has:
+
+* first class functions
+* ``map()``, ``filter()``, ``reduce()`` and ``functools``
+* closures (``nonlocal``)
+* decorators
+
+but lacks:
+
+* tail recursion
+* function composition
+* full support for anonymous functions (but has named inner functions)

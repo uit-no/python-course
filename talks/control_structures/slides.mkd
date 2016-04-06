@@ -1,8 +1,9 @@
-## Control Structures in Python
+# Control Structures in Python
 
-Beyond ifs and buts.
+*Beyond ifs and buts*
 
 Ole Martin Bjørndalen
+
 
 ---
 ## Iteration
@@ -10,7 +11,8 @@ Ole Martin Bjørndalen
 This:
 
 ```python
-animals = ['horse', 'dog', 'iguana']
+animals = ['cow', 'horse', 'zebra']
+
 i = 0
 while i < len(animals):
     print(animals[i])
@@ -25,14 +27,123 @@ for animal in animals:
 ```
 
 ```
+cow
 horse
-dog
-iguana
+zebra
 ```
+
+
+---
+## Going Backwards
+
+```python
+animals = ['cow', 'horse', 'zebra']
+
+for animal in reversed(animals):
+    print(animal)
+```
+
+```
+zebra
+horse
+cow
+```
+
 
 ---
 ## List Comprehensions
 
+Instead building a list like this:
+
+```python
+animals = ['sheep', 'cow', 'chicken']
+
+big = []
+for animal in animals:
+    big.append(animal.upper())
+
+print(big)
+```
+
+```
+['HORSE', 'COW', 'CHICKEN']
+```
+
+you can use a list comprehension:
+
+```python
+big = [animal.upper() for animal in animals]
+
+print(big)
+```
+
+```
+['HORSE', 'COW', 'CHICKEN']
+```
+
+
+---
+## Conditionals
+
+You can skip values by adding an `if` clause:
+
+```python
+animals = ['sheep', 'wolf', 'chicken']
+
+big = [animal.upper() for animal in animals if animal != 'wolf']
+
+print(big)
+```
+
+```
+['SHEEP', 'CHICKEN']
+```
+
+
+---
+## More Comprehensions
+
+There are also comprehensions for building dictionaries:
+
+```python
+print({word: len(word) for word in ['a', 'few', 'words']})
+```
+
+```
+{'a': 1, 'few': 3, 'words': 5}
+```
+
+and sets:
+
+```python
+print({len(word) for word in ['and', 'a', 'few', 'more']})
+```
+
+```
+{1, 3, 4}
+```
+
+
+## Incomprehensions
+
+Nesting comprehensions is a bad idea:
+
+```python
+print({uword: len(uword) for uword in [word for word in
+      ['what', 'is', 'going', 'on', 'here?']]})
+```
+
+```
+{'on': 2, 'here?': 5, 'going': 5, 'what': 4, 'is': 2}
+```
+
+(Todo: worse example.)
+
+
+---
+## Generators
+
+Todo: why?
 
 
 ---
@@ -73,6 +184,7 @@ for n in even_numbers():
 8
 ```
 
+
 ---
 ## What's Going On Here?
 
@@ -100,6 +212,7 @@ for n in even_numbers():
 ```
 
 Control switches back and forth.
+
 
 ---
 ## Converting to a List
@@ -156,7 +269,7 @@ def yell(word):
 
 for word in map(yell, ['this', 'is', 'awesome']):
     print(word)
-``` 
+```
 
 ```
 THIS!
@@ -181,7 +294,7 @@ print(list(animals))
 ```
 
 ---
-## 
+##
 
 ```python
 def iter_words(lines):
@@ -202,278 +315,3 @@ chickens
 ```
 
 
----
-
-## Iterables
-
-An iterable is anything that can be iterated over. This includes
-Python collections:
-
-```python
-# List
-for city in ['Tromsø', 'Bergen', 'Sarpsborg']:
-    print(city)
-```
-
-```python
-
-```
-
-and also objects that implement ``__iter__()``:
-
-```python
-for msg in port:
-    print(msg)
-```
-
-as well as generators, which we will come back to later.
-
----
-
-## Generators
-
-You'll find this a lot in Python:
-
-```python
-for row in db_cursor:
-
-for msg in port:
-
-for item in list:
-
-for key in dictionary:
-```
-
----
-
-## Generators
-
-Let's say you want to loop over lines:
-
-```python
-with open('animals.txt') as file:
-    lines = file.readlines()
-    for line in lines:
-        if 'horse' in line:
-            print(line.rstrip())
-```
-
-```
-horse
-horse and badger
-```
-
-But this:
-
-* reads everything into memory at once
-* doesn't start iterating over lines until they're all read
-
-What if you have 7 fantasillion lines?
-
----
-
-## Generators to the Rescue
-
-The file object is a generator. Iterating over it will yield line at a time:
-
-```python
-with open('animals.txt') as file:
-    for line in file:
-        if 'horse' in line:
-            print(line, end='')
-```
-
-```
-horse and badger
-horse
-```
-
----
-
-## A Simple Generator
-
-
-```python
-def numbers():
-    yield 1
-    for n in [2, 3]:
-        yield n
-    yield from [4, 5, 6]
-
-for n in numbers():
-    print(n)
-```
-
-```python
-list(numbers())
-```
-
----
-
-## Reimplementing the Line Generator
-
-```python
-def iter_lines(file):
-    while True:
-         line = file.readline()
-         if line = '':
-             # End of file.
-             return
-         else:
-             yield line
-
-with open('animals.txt') as file:
-    for line in iter_lines(file):
-        if 'horse' in line:
-            print(line, end='')
-
-horse and badger
-horse
-```
-
-Control switches in and out of the generator at ``yield``.
-
-# You can loop over lines in a file:
-
-```python
-for line in open('files/movie_quotes.txt'):
-    print(line)
-```
-
----
-
-Generators allow you to iterate over infinite sequences.
-
-```python
-## Todo: find a good example.
-## (A loop with input() doesn't work well with Jupyter.)
-
-def user_input():
-    yield from ['These', 'are', 'lines']
-
-for line in iter_input():
-    print(line, 'backwards is', line[::-1])
-    print()
-
-print('*quit*')
-```
-
-```python
-def integers():
-    yield from [1, 2, 3]
-
-for n in integers():
-    print(n)
-```
-
-```python
-## Todo: converting to lists
-##    lines = list(gen)
-##    iter(something)
-```
-
----
-
-## List Comprehensions
-
-A more convenient way to write loops
-
-```python
-lines = []
-for line in open('files/movie_quotes.txt'):
-    lines.append(line.strip().upper())
-
-print(lines)
-```
-
-```python
-## With a list comprehension:
-lines = [line.strip().upper() for line in open('files/movie_quotes.txt')]
-
-print(lines)
-```
-
----
-
-## Generator Comprehensions
-
-Convenient way to write a generator.
-
-```python
-def print_lines(lines):
-    for line in lines:
-        print(line)
-
-file = open('files/movie_quotes.txt')
-gen = (line.strip() for line in file)
-print_lines(gen)
-print_lines(['Extra line 1', 'Extra line 2'])
-```
-
----
-
-## Dictionary Comprehensions
-
-```python
-words = ['the', 'quick', 'brown', 'python']
-counts = {word: len(word) for word in words}
-print(counts)
-```
-
----
-
-## Higher Order Functions
-
-* functions taking functions as arguments
-* functions returning functions
-* generally passing functions around
-
----
-
-## Passing A Function to a Function
-
----
-
-## Returning A Function from a Function
-
----
-
-## Decorators
-
----
-
-## Functional Style
-
-``map()``, ``filter()``, ``reduce()`` and ``partial()``
-
-```python
-def reverse(word):
-    return word[::-1]
-
-list(map(reverse, ['A', 'few', 'words']))
-```
-
-```python
-def is_short(word):
-    return len(word) < 3
-
-for word in filter(is_short, ['A', 'few', 'words']):
-    print(word)
-```
-
----
-
-## How Functional Is Python?
-
-Python has:
-
-* first class functions
-* ``map()``, ``filter()``, ``reduce()`` and ``functools``
-* closures (``nonlocal``)
-* decorators
-
-but lacks:
-
-* tail recursion
-* function composition
-* full support for anonymous functions (but has named inner functions)
