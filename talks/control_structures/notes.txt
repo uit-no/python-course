@@ -1,0 +1,28 @@
+def genlines():
+    yield line
+    yield line
+
+
+for line in genlines():
+    print(line)
+
+
+# Instead of print.
+# 
+# Makes it more general.
+
+
+def gen_lines():
+    yield 'Line 1'
+    yield 'Line 2'
+
+
+def print_lines(lines):
+    for line in lines:
+        print(lines)
+
+
+print_lines(gen_lines())
+
+
+sorted()

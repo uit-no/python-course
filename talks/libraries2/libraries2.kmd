@@ -1,0 +1,212 @@
+## Libraries Part 2: Command Lines, HTTP Requests and Databases
+
+* Click (http://click.pocoo.org/)
+* Requests (http://docs.python-requests.org/
+* Python Database API (https://www.python.org/dev/peps/pep-0249/)
+
+
+---
+
+## Click
+
+Command line arguments.
+
+http://click.pocoo.org/
+
+
+---
+
+## Basic Example
+
+``hello.py``:
+
+```python
+import click
+
+@click.command()
+@click.argument('name')
+def main(name):
+    print('hello, {}!'.format(name))
+
+main()
+```
+
+
+---
+
+Terminal:
+
+```bash
+$ python hello.py --help
+Usage: hello.py [OPTIONS] NAME
+
+Options:
+  --help  Show this message and exit.
+
+$ python hello.py Bob
+Hello, Bob!
+```
+
+
+---
+
+## Adding an Option
+
+```python
+import click
+
+@click.command()
+@click.argument('name')
+@click.option('--reverse', is_flag=True)
+def main(name, reverse):
+    if reverse:
+        name = name[::-1]
+    print('hello, {}!'.format(name))
+
+main()
+```
+
+Terminal:
+
+```bash
+$ python hello.py
+```
+
+
+---
+
+## Requests: HTTP for Humans
+
+http://docs.python-requests.org/
+
+```python
+import requests
+
+r = requests.get('https://google.com/')
+
+print(r.ok)
+print(r.text[:100])
+```
+
+
+---
+
+## Basic Functionality
+
+```python
+# Parameters: "http://uit.no/people?first_name=Anne"
+r = requets.get(url, params={'first_name': 'Anne'})
+
+# Posting data:
+r = requests.post(url, data={'key': 'value'})
+
+# Authentication:
+r = requests.get(url, auth=('the_username', 'the_password'))
+```
+
+http://docs.python-requests.org/en/master/user/quickstart/
+
+
+---
+
+## Web Services
+
+Example: Star Wars API: https://swapi.co/
+
+Returns (JSON)[http://json.org/] which is converted to a Python list or dictionary.
+
+
+---
+
+## Example: Star Wars API
+
+```python
+from pprint import pprint
+
+r = requests.get('https://swapi.co/api/people/1')
+luke = r.json()
+pprint(luke)
+```
+
+
+---
+
+## Databases
+
+Python Database API (https://www.python.org/dev/peps/pep-0249/)
+
+Same API for all database (SQLite, MySQL, PostgreSQL, Oracle etc.)
+
+
+---
+
+## Example: SQLite
+
+https://www.sqlite.org/
+
+* comes with Python
+* no server, data is stored in a local file
+* great for prototyping and application data files (https://www.sqlite.org/whentouse.html)
+
+```python
+import sqlite3
+
+conn = sqlite3.connect('files/movies.db')
+cursor = conn.cursor()
+
+cursor.execute('select * from movies')
+for row in cursor:
+    print(row)
+```
+
+
+---
+
+## Connection Parameters
+
+Databases differ here.
+
+PostgreSQL:
+
+```python
+import psycopg2
+conn = psycopg2.connect('dbname=movies user=bob')
+```
+
+MySQL
+
+```python
+import MySQLdb
+conn = MySQLdb.connect(db='movies', host='localhost')
+```
+
+
+---
+
+## Query Arguments
+
+Databases differ here as well.
+
+SQLite:
+
+```python
+cursor.execute('select * from movies where title=?', ['Minions'])
+```
+
+MySQL:
+
+```python
+cursor.execute('select * from movies where title=%s', ['Minions'])
+```
+
+
+---
+
+## Examples
+
+* [geturl.py](/edit/examples/libraries2/geturl.py)
+* [star_wars_name.py](/edit/examples/libraries2/star_wars_name.py)
+
+```python
+```
+

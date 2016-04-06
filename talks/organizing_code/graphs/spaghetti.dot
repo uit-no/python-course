@@ -1,0 +1,53 @@
+digraph {
+        node [fontname="Sans-Serif" style="filled" fillcolor="#eeeeee"];
+        edge [fontname="Sans-Serif"];
+
+        globals [label="Global variables"]
+        a [label="a"]
+        b [label="b"]
+        c [label="c"]
+        d [label="d"]
+        e [label="e"]
+        f [label="f"]
+        g [label="g"]
+        h [label="h"]
+        i [label="i"]
+        j [label="j"]
+        k [label="k"]
+        l [label="l"]
+
+        a -> {globals}
+        b -> {globals}
+        d -> {globals}
+        e -> {globals}
+        f -> {globals}
+        g -> {globals}
+        h -> {globals}
+        i -> {globals}
+        j -> {globals}
+        
+
+        a -> b
+        b -> d
+        d -> a
+        f -> e
+        k -> a
+        j -> i
+        j -> f
+        c -> f
+        g -> d
+        c -> d
+        d -> f
+        k -> i
+        c -> e
+        g -> k
+        e -> g
+        e -> i
+        h -> e
+        k -> b
+        k -> f
+        l -> h
+        g -> c
+        g -> i
+        k -> j
+}
