@@ -268,6 +268,20 @@ for i in range(1, 198284921809481841824):
 ---
 ## Built-In Generators: `enumerate()`:
 
+You have all your sheep in a text file.
+
+Here are the first few lines:
+
+```
+sheep
+sheep
+sheep
+sheep
+```
+
+Could there be a wolf hiding among them? Let's write a tool to find
+out!
+
 ```python
 with open('sheep.txt') as sheep_file:
     for lineno, line in enumerate(sheep_file, start=1):
@@ -278,6 +292,8 @@ with open('sheep.txt') as sheep_file:
 ```
 There's a wolf on line 118!
 ```
+
+Oh, no!
 
 
 ---
