@@ -1,3 +1,11 @@
+Review control structures?
+
+"if x then y else"?
+
+exceptions?
+
+Define iteration.
+
 "You can iterate over anything"?
 
 filter() vs. list comprehension with `if`.
