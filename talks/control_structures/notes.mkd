@@ -1,3 +1,12 @@
+Generators are useful for:
+
+* iterating over large data sets
+* iterating over infinite sequences (incoming messages, keyboard events)
+* simplifying loops
+* making part of a loop reusable
+
+
+
 examples and exercies:
 
 animals

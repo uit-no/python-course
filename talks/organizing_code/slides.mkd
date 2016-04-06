@@ -1,3 +1,8 @@
+
+
+
+
+
 ## Don't Write Java in Python
 
 This looks like Python:
@@ -7,7 +12,7 @@ def do_this(and_this):
     return and_this
 ```
 
-while this doesn't:
+This doesn't:
 
 ```python
 def DontDoThis(orThis)

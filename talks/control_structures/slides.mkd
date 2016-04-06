@@ -4,9 +4,7 @@ Beyond ifs and buts.
 
 Ole Martin Bjørndalen
 
-
 ---
-
 ## Iteration
 
 ```python
@@ -31,7 +29,7 @@ Both output:
 3
 ```
 
-
+---
 ## More Iteration
 
 You can iterate over any collection:
@@ -40,12 +38,17 @@ You can iterate over any collection:
 for word in ['horse', 'duck', 'rabbit']:
     print(word)
 
-for key, value in {'horses': 2, 'ducks': 3}.items():
-    print('There are {} {}.'.format(value, key))
+animal_counts = {'horses': 2, 'ducks': 3}
+for animal, count in animal_counts.items():
+    print('There are {} {}.'.format(count, animal))
 ```
 
+```
+There are 3 ducks.
+There are 2 horses.
+```
 
-
+---
 ## A Simple Generator
 
 ```python
@@ -62,10 +65,7 @@ for n in numbers():
 2
 ```
 
-
 ---
-
-
 ## A More Typical Generator
 
 ```python
@@ -86,7 +86,7 @@ for n in even_numbers():
 8
 ```
 
-
+---
 ## What's Going On Here?
 
 ```python
@@ -114,10 +114,7 @@ for n in even_numbers():
 
 Control switches back and forth.
 
-
 ---
-
-
 ## Converting to a List
 
 ```python
@@ -142,8 +139,6 @@ print(list(gen))
 
 
 ---
-
-
 ## Filtering With Generators
 
 ```python
@@ -165,9 +160,7 @@ cow
 chicken
 ```
 
-
 ---
-
 ## `map()`
 
 ```python
@@ -184,7 +177,7 @@ IS!
 AWESOME!
 ```
 
-
+---
 ## ``filter()``
 
 ```python
@@ -200,11 +193,8 @@ print(list(animals))
 ['horse', 'cow', 'chicken']
 ```
 
-
 ---
-
-
-## Filtering With Generators
+## 
 
 ```python
 def iter_words(lines):
@@ -213,8 +203,7 @@ def iter_words(lines):
             yield word
 
 some_lines = ['one horse', 'and two chickens']
-for word in iter_words(some_lines):
-    print(word)
+list(iter_words(some_lines))
 ```
 
 ```
@@ -224,17 +213,6 @@ and
 two
 chickens
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
