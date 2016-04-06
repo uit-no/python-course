@@ -96,19 +96,19 @@ def even_numbers():
         yield n
 
 for n in even_numbers():
-    print('(In main lopp)')
+    print('(In main loop)')
     print(n)
 ```
 
 ```
 (In generator)
-(In main lopp)
+(In main loop)
 0
 (In generator)
-(In main lopp)
+(In main loop)
 1
 (In generator)
-(In main lopp)
+(In main loop)
 2
 ```
 
