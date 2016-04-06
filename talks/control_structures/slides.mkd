@@ -154,8 +154,14 @@ for node in graph:
 
 for record in db_cursor:
 
-for prime in first_primes(10000):
+for prime in primes():
 ```
+
+Useful when you
+
+* have more data than will fit in memory
+* have an infinite sequence
+* want to break up a complex loop
 
 
 ---
@@ -241,6 +247,39 @@ print(list(numbers()))
 
 ```
 [1, 2, 3]
+```
+
+
+---
+## Built-In Generators: `range()`:
+
+```python
+for i in range(1, 198284921809481841824):
+    print(i)
+```
+
+```
+1
+2
+3
+... and so on for quite a while
+```
+
+
+---
+## Built-In Generators: `enumerate()`:
+
+Let's expand the wolf finder to tell us where the wolf is:
+
+```python
+with open('sheep.txt') as sheep_file:
+    for lineno, line in enumerate(sheep_file, start=1):
+        if 'wolf' in line:
+            print("There's a wolf on line {}!".format(lineno))
+```
+
+```
+There's a wolf on line 118!
 ```
 
 
@@ -342,3 +381,7 @@ but lacks:
 * tail recursion
 * function composition
 * full support for anonymous functions (but has named inner functions)
+
+
+---
+## Thanks
