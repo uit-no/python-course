@@ -5,6 +5,7 @@ class Pet:
         self.name = name
         self.hunger = 0
         self.age = 0
+        self.pets_met = set()
         self.__class__.population.add(self)
         
     def die(self):
@@ -16,15 +17,21 @@ class Pet:
         
     @classmethod
     def advance_time(cls):
-        for individual in cls.population:
-            individual.age += 1
-            individual.hunger += 1
+        for pet in cls.population:
+            pet.age += 1
+            pet.hunger += 1
         
     def feed(self):
         self.hunger = 0
         
-    def hungrier_than(self, other_pet):
-        return self.hunger > other_pet.hunger
+    def meet(self, other_pet):
+        print("{} meets {}".format(self.name, other_pet.name))
+        self.pets_met.add(other_pet)
+        other_pet.pets_met.add(self)
+        
+    def print_stats(self):
+        print("{o.name}, age {o.age}, hunger {o.hunger}, met {n} others".
+             format(o = self, n = len(self.pets_met)))
 
 
 class Fish(Pet):
