@@ -168,14 +168,21 @@ chicken
 
 ---
 
-## ``map()``
+## `map()`
 
-```
+```python
 def yell(word):
     return word.upper() + '!'
 
-map(yell, ')
+for word in map(yell, ['this', 'is', 'awesome']):
+    print(word)
 ``` 
+
+```
+THIS!
+IS!
+AWESOME!
+```
 
 
 ## ``filter()``

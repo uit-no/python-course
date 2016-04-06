@@ -5,6 +5,11 @@ animals without and
 short words (<= 3)
 
 
+for line in file:
+    
+
+
+
 for key, value in {'horses': 2, 'ducks': 3}.items():
     print('There are {} {}.'.format(value, key))
 

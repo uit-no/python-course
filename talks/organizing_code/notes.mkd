@@ -1,0 +1,54 @@
+* build large programs as layers on top of layers (libraries on top of libraries)
+* a part should only know what it needs to know
+* avoid global variables (show in graph)
+* no global config or args object
+* each module is a library
+
+
+* no global object that you pass around everywhere
+
+(Example: program where every function uses the config object.)
+
+All imports at the top of the file (so you can see where things come from.) And what the module requires.
+
+Don't use "from mod import *"
+
+Spaghetti / lasagna / macaroni.
+
+A function or module should know as little as possible about the outside world.
+
+avoid magic
+
+you can test each part on its own
+
+and it's easier to move things around
+
+absolute vs. relative import
+
+You can study and test each part on its own. No need to worry about the rest of the code.
+
+I like to make things easier for myself. I can't keep that many things in my head at one time.
+
+I write little functions and test them interactively (or in automated tests).
+
+Naming things well makes the code easier to read
+If you find it hard to name a function it's probably doing more than one thing
+
+Build your programs as a bunch of little libraries.
+
+These should be layered so the bottom libraries don't have to know anything about the ones above.
+
+Make every part of the program a building block for building more program.
+
+Keep I/O in one place. (Near main().)
+
+I optimize for user happiness. (End users and programmers.)
+
+Keep your imports at the top of the file:
+
+```pyton
+import x as y
+from .mod import func`
+
+``from subprocess import check_call as run``
+```

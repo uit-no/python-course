@@ -1,8 +1,36 @@
+## Don't Write Java in Python
+
+This looks like Python:
+
+```python
+def do_this(and_this):
+    return and_this
+```
+
+while this doesn't:
+
+```python
+def DontDoThis(orThis)
+    return len(orThis)
+```
+
+`CamelCase` is only for classes:
+
+```python
+class DogFood:
+    ...
+```
+
+Same goes for file names:
+
+```
+this_is_good.py
+ThisLooksLikeJava.py
+```
 
 ---
 
-
-## Organizing Code
+# Organizing Code
 
 Keeping your code:
 
@@ -12,6 +40,32 @@ Keeping your code:
 * maintainable
 
 Most of this talk this applies to any language.
+
+
+---
+
+
+---
+
+## Readable Code
+
+Follow PEP-8.
+
+(The line length limit is controversial.)
+
+---
+
+
+## Naming Conventions
+
+```python
+AnimalFile        # Class names are camel case.
+animal_lengths    # Variables are lowercase with underscores.
+animal_lengths()  # So are functions.
+BAD_ANIMALS       # Contants are uppercase.
+```
+
+This makes them easy to tell apart.
 
 
 ---
@@ -46,7 +100,7 @@ The rest of your code will now be cleaner.
 
 * use pure functions when possible
 * a pure function doesn't modify anything outside itself
-* keep I/O near ``main()``
+* keep I/O near `main()`
 
 
 ---
@@ -225,7 +279,7 @@ if is_student(person):
 ---
 ## Naming Conventions
 
-``_underscore``.
+`_something_internal`.
 
 * internal to module (or object)
 * not enforced, but is a clue that it's not a part of the API
@@ -247,57 +301,6 @@ from .parser import Parser, parse, parse_all
 ```
 
 
----
+## Further Reading
 
-* build large programs as layers on top of layers (libraries on top of libraries)
-* a part should only know what it needs to know
-* avoid global variables (show in graph)
-* no global config or args object
-* each module is a library
-
-
-* no global object that you pass around everywhere
-
-(Example: program where every function uses the config object.)
-
-All imports at the top of the file (so you can see where things come from.) And what the module requires.
-
-Don't use "from mod import *"
-
-Spaghetti / lasagna / macaroni.
-
-A function or module should know as little as possible about the outside world.
-
-avoid magic
-
-you can test each part on its own
-
-and it's easier to move things around
-
-absolute vs. relative import
-
-You can study and test each part on its own. No need to worry about the rest of the code.
-
-I like to make things easier for myself. I can't keep that many things in my head at one time.
-
-I write little functions and test them interactively (or in automated tests).
-
-Naming things well makes the code easier to read
-If you find it hard to name a function it's probably doing more than one thing
-
-Build your programs as a bunch of little libraries.
-
-These should be layered so the bottom libraries don't have to know anything about the ones above.
-
-Make every part of the program a building block for building more program.
-
-Keep I/O in one place. (Near main().)
-
-I optimize for user happiness. (End users and programmers.)
-
-Keep your imports at the top of the file.
-
-``import x as y``, `from .mod import func`
-
-``from subprocess import check_call as run``
-
+* [Idiomatic Python (Jeff Knupp)](https://jeffknupp.com/writing-idiomatic-python-ebook/)
