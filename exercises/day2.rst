@@ -103,3 +103,13 @@ You obtain::
   $ python example.py
 
   function "subtract" called with arguments: 2 3
+
+
+Classes
+-------
+
+Make the following tests green:
+
+.. literalinclude:: classes.py
+   :language: python
+   :linenos:
