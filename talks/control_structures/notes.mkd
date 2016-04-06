@@ -1,3 +1,13 @@
+# List comprehension
+# Dictionary comprehension
+# Set comprehension
+# Function passing
+# map()
+# filter()
+# Generators
+# Generator comprehension
+
+
 Generators are useful for:
 
 * iterating over large data sets

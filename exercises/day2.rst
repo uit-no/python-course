@@ -3,12 +3,12 @@
 Exercises day 2
 ===============
 
-Higher-order functions
-----------------------
+Control Structures
+------------------
 
 Make the following tests green:
 
-.. literalinclude:: higher-order.py
+.. literalinclude:: control_structures.py
    :language: python
    :linenos:
 
