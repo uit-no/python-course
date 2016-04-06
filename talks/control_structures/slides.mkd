@@ -140,11 +140,22 @@ print({uword: len(uword) for uword in [word for word in
 
 
 
-
 ---
 ## Generators
 
-Todo: why?
+Generate a sequence of values you can iterate over.
+
+Some examples:
+
+```python
+for line in file:
+
+for node in graph:
+
+for record in db_cursor:
+
+for prime in first_primes(10000):
+```
 
 
 ---
@@ -225,17 +236,11 @@ def numbers():
     yield 2
     yield 3
 
-gen = numbers()
-print(gen)
-
-print(list(gen))
-print(list(gen))
+print(list(numbers()))
 ```
 
 ```
-<generator object numbers at 0x7f54b1bfca68>
 [1, 2, 3]
-[]
 ```
 
 
@@ -261,6 +266,32 @@ cow
 chicken
 ```
 
+
+---
+## Generator Comprehensions
+
+
+The last example can be rewritten as a generator expression:
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+def only_animals(words):
+    return (word for word in words if is_animal(word))
+
+for animal in only_animals(['horse', 'cow', 'and', 'chicken']):
+    print(animal)
+```
+
+
+---
+## Functional Programming
+
+Python functions are objects and can be passed around just like
+any other object.
+
+
 ---
 ## `map()`
 
@@ -278,8 +309,9 @@ IS!
 AWESOME!
 ```
 
+
 ---
-## ``filter()``
+## `filter()`
 
 ```python
 def is_animal(word):
@@ -294,25 +326,19 @@ print(list(animals))
 ['horse', 'cow', 'chicken']
 ```
 
+
 ---
-##
+## How Functional Is Python?
 
-```python
-def iter_words(lines):
-    for line in lines:
-        for word in line.split():
-            yield word
+Python has:
 
-some_lines = ['one horse', 'and two chickens']
-list(iter_words(some_lines))
-```
+* first class functions
+* `map()`, `filter()`, `reduce()` and `functools`
+* closures (and proper ones with `nonlocal`)
+* decorators
 
-```
-one
-horse
-and
-two
-chickens
-```
+but lacks:
 
-
+* tail recursion
+* function composition
+* full support for anonymous functions (but has named inner functions)

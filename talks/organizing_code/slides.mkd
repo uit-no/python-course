@@ -292,7 +292,7 @@ if is_student(person):
 
 ---
 
-## ``__init__.py``
+## `__init__.py`
 
 * is the top level module
 * should only contain imports (no code or data)

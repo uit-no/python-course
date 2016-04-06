@@ -1,3 +1,37 @@
+Todo:
+
+* remove double backticks
+* what is iteration?
+* why generators?
+* sheep among wolves example (enumerate())
+* more on "Functional programming"?
+
+
+## Generators
+
+Let's say you have a text file of sheep:
+
+```
+sheep
+sheep
+wolf
+sheep
+```
+
+Oh, no! There's a wolf in there! That's not good.
+
+Let's write a program to detect wolves:
+
+```python
+with open('sheep.txt') as sheep_file:
+    lines = sheep_file.readlines()
+    for line in lines:
+        if 'wolf' in line:
+            print('Found a wolf!')
+```
+
+
+
 Review control structures?
 
 "if x then y else"?
@@ -11,13 +45,7 @@ Define iteration.
 filter() vs. list comprehension with `if`.
 
 
-# List comprehension
-# Dictionary comprehension
-# Set comprehension
 # Function passing
-# map()
-# filter()
-# Generators
 # Generator comprehension
 
 
