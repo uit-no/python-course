@@ -29,8 +29,8 @@ Let's try without a library:
 ```python
 import sys
 
-# sys.argv is a list of arguments to our program.                               
-# sys.argv[1] is the name of the program, so we need sys.argv[1]                
+# sys.argv is a list of arguments to our program.
+# sys.argv[0] is the name of the program (greet.py), so we need sys.argv[1]
 name = sys.argv[1]
 print('Hello, {}!'.format(name))
 ```
