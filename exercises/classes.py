@@ -9,59 +9,66 @@ def make_dog_class():
         a fish meets a dog" - but extra kudos to you if you can make it so.
     """
 
-    # The classes Pet and Fish are taken from the notebook. copy and paste (and
-    # modify) them into the other exercises as you need them.
+    # The classes Pet and Fish are taken from the notebook, with the addition
+    # of '_advance_time_individual' in pet. copy and paste (and modify) them
+    # into the other exercises as you need them.
     class Pet:
-	population = set()
-	
-	def __init__(self, name):
-	    self.name = name
-	    self.hunger = 0
-	    self.age = 0
-	    self.pets_met = set()
-	    self.__class__.population.add(self)
-	    
-	def die(self):
-	    print("{} dies :(".format(self.name))
-	    self.__class__.population.remove(self)
-	    
-	def is_alive(self):
-	    return self in self.__class__.population
-	    
-	@classmethod
-	def advance_time(cls):
-	    for pet in cls.population:
-		pet.age += 1
-		pet.hunger += 1
-	    
-	def feed(self):
-	    self.hunger = 0
-	    
-	def meet(self, other_pet):
-	    print("{} meets {}".format(self.name, other_pet.name))
-	    self.pets_met.add(other_pet)
-	    other_pet.pets_met.add(self)
-	    
-	def print_stats(self):
-	    print("{o.name}, age {o.age}, hunger {o.hunger}, met {n} others".
-		 format(o = self, n = len(self.pets_met)))
+        population = set()
+        
+        def __init__(self, name):
+            self.name = name
+            self.hunger = 0
+            self.age = 0
+            self.pets_met = set()
+            self.__class__.population.add(self)
+            
+        def die(self):
+            print("{} dies :(".format(self.name))
+            self.__class__.population.remove(self)
+            
+        def is_alive(self):
+            return self in self.__class__.population
+            
+        @classmethod
+        def advance_time(cls):
+            for pet in cls.population:
+                pet._advance_time_individual()
+
+        def _advance_time_individual(self):
+            # the leading _ in the function name is a convention that indicates
+            # to users of a class that "this is a method that is used
+            # internally, I probably shouldn't call it myself"
+            self.age += 1
+            self.hunger += 1
+            
+        def feed(self):
+            self.hunger = 0
+            
+        def meet(self, other_pet):
+            print("{} meets {}".format(self.name, other_pet.name))
+            self.pets_met.add(other_pet)
+            other_pet.pets_met.add(self)
+            
+        def print_stats(self):
+            print("{o.name}, age {o.age}, hunger {o.hunger}, met {n} others".
+                 format(o = self, n = len(self.pets_met)))
 
 
     class Fish(Pet):
-	def __init__(self, name, size):
-	    self.size = size
-	    super().__init__(name)
-	    
-	def meet(self, other_fish):
-	    super().meet(other_fish)
-	    if not isinstance(other_fish, Fish):
-		return
-	    if self.size > other_fish.size:
-		self.feed()
-		other_fish.die()
-	    elif self.size < other_fish.size:
-		other_fish.feed()
-		self.die()
+        def __init__(self, name, size):
+            self.size = size
+            super().__init__(name)
+            
+        def meet(self, other_fish):
+            super().meet(other_fish)
+            if not isinstance(other_fish, Fish):
+                return
+            if self.size > other_fish.size:
+                self.feed()
+                other_fish.die()
+            elif self.size < other_fish.size:
+                other_fish.feed()
+                self.die()
 
 
     Dog = None # make Dog class here
@@ -87,7 +94,7 @@ def test_dog_class():
     assert attila in tamerlan.pets_met
     assert tamerlan in attila.pets_met
 
-    steve = Fish("Steve")
+    steve = Fish("Steve", 1)
 
     assert attila.hunger > 0
     attila.meet(steve)
@@ -116,7 +123,7 @@ def test_define_hungry():
     Pet, Fish, Dog = define_hungry()
 
     p = Pet("p")
-    f = Fish("f")
+    f = Fish("f", 1)
     d = Dog("d")
     assert isinstance(Pet.get_hungry_pets(), set)
 
