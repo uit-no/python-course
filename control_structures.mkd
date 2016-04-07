@@ -1,1 +1,402 @@
-talks/control_structures/slides.mkd
+# Control Structures in Python
+
+*Beyond ifs and buts*
+
+Ole Martin Bjørndalen
+
+
+---
+## Iteration
+
+This:
+
+```python
+animals = ['cow', 'horse', 'zebra']
+
+i = 0
+while i < len(animals):
+    print(animals[i])
+    i = i + 1
+```
+
+is better written as:
+
+```python
+for animal in animals:
+    print(animal)
+```
+
+```
+cow
+horse
+zebra
+```
+
+
+---
+## Going Backwards
+
+```python
+animals = ['cow', 'horse', 'zebra']
+
+for animal in reversed(animals):
+    print(animal)
+```
+
+```
+zebra
+horse
+cow
+```
+
+
+---
+## List Comprehensions
+
+Instead of building a list like this:
+
+```python
+animals = ['sheep', 'wolf', 'chicken']
+
+big = []
+for animal in animals:
+    big.append(animal.upper())
+
+print(big)
+```
+
+```
+['SHEEP', 'WOLF', 'CHICKEN']
+```
+
+you can use a list comprehension:
+
+```python
+big = [animal.upper() for animal in animals]
+
+print(big)
+```
+
+```
+['SHEEP', 'WOLF', 'CHICKEN']
+```
+
+
+---
+## Conditionals
+
+You can skip values by adding an `if` clause:
+
+```python
+animals = ['sheep', 'wolf', 'chicken']
+
+big = [animal.upper() for animal in animals if animal != 'wolf']
+
+print(big)
+```
+
+```
+['SHEEP', 'CHICKEN']
+```
+
+
+---
+## More Comprehensions
+
+There are also comprehensions for building dictionaries:
+
+```python
+print({word: len(word) for word in ['a', 'few', 'words']})
+```
+
+```
+{'a': 1, 'few': 3, 'words': 5}
+```
+
+and sets:
+
+```python
+print({len(word) for word in ['and', 'a', 'few', 'more']})
+```
+
+```
+{1, 3, 4}
+```
+
+(and generator comprehensions, but we'll get to those later.)
+
+
+---
+## Incomprehensions
+
+Nesting comprehensions is a bad idea:
+
+```python
+print({uword: len(uword) for uword in [word for word in
+      ['what', 'does', 'this', 'even', 'do?']]})
+```
+
+
+
+
+
+---
+## Generators
+
+Generate a sequence of values you can iterate over.
+
+Some examples:
+
+```python
+for line in file:
+
+for node in graph:
+
+for record in db_cursor:
+
+for prime in primes():
+```
+
+Useful when you:
+
+* have more data than will fit in memory
+* have an infinite sequence
+* need to iterate over incoming data
+* want to break up a complex loop
+
+
+---
+## A Simple Generator
+
+```python
+def numbers():
+    yield 1
+    yield 2
+
+for n in numbers():
+    print(n)
+```
+
+```
+1
+2
+```
+
+
+---
+## A More Typical Generator
+
+```python
+def even_numbers():
+    for n in range(10):
+        if n % 2 == 0:
+           yield n
+
+for n in even_numbers():
+    print(n)
+```
+
+```
+0
+2
+4
+6
+8
+```
+
+
+---
+## What's Going On Here?
+
+```python
+def even_numbers():
+    for n in range(3):
+        print('(In generator)')
+        yield n
+
+for n in even_numbers():
+    print('(In main loop)')
+    print(n)
+```
+
+```
+(In generator)
+(In main loop)
+0
+(In generator)
+(In main loop)
+1
+(In generator)
+(In main loop)
+2
+```
+
+Control switches back and forth.
+
+
+---
+## Converting To A List
+
+```python
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+
+print(list(numbers()))
+```
+
+```
+[1, 2, 3]
+```
+
+
+---
+## Built-In Generators: `range()`:
+
+```python
+for i in range(1, 198284921809481841824):
+    print(i)
+```
+
+```
+1
+2
+3
+... and so on for quite a while
+```
+
+
+---
+## Built-In Generators: `enumerate()`:
+
+You have all your sheep in a text file.
+
+Here are the first few lines:
+
+```
+sheep
+sheep
+sheep
+sheep
+```
+
+Could there be a wolf hiding among them? Let's write a tool to find
+out!
+
+```python
+with open('sheep.txt') as sheep_file:
+    for lineno, line in enumerate(sheep_file, start=1):
+        if 'wolf' in line:
+            print("There's a wolf on line {}!".format(lineno))
+```
+
+```
+There's a wolf on line 118!
+```
+
+Oh, no!
+
+
+---
+## Filtering With Generators
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+def only_animals(words):
+    for word in words:
+        if is_animal(word):
+           yield word
+
+for animal in only_animals(['horse', 'cow', 'and', 'chicken']):
+    print(animal)
+```
+
+```
+horse
+cow
+chicken
+```
+
+
+---
+## Generator Comprehensions
+
+
+The last example can be rewritten as a generator expression:
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+def only_animals(words):
+    return (word for word in words if is_animal(word))
+
+for animal in only_animals(['horse', 'cow', 'and', 'chicken']):
+    print(animal)
+```
+
+
+---
+## Functional Programming
+
+Python functions are objects and can be passed around just like
+any other object.
+
+
+---
+## `map()`
+
+```python
+def yell(word):
+    return word.upper() + '!'
+
+for word in map(yell, ['this', 'is', 'awesome']):
+    print(word)
+```
+
+```
+THIS!
+IS!
+AWESOME!
+```
+
+
+---
+## `filter()`
+
+```python
+def is_animal(word):
+    return word != 'and'
+
+animals = filter(is_animal, ['horse', 'cow', 'and', 'chicken'])
+print(animals)
+print(list(animals))
+```
+
+```
+['horse', 'cow', 'chicken']
+```
+
+
+---
+## How Functional Is Python?
+
+Python has:
+
+* first class functions
+* `map()`, `filter()`, `reduce()` and `functools`
+* closures (and proper ones with `nonlocal`)
+* decorators
+
+but lacks:
+
+* tail recursion
+* function composition
+* full support for anonymous functions (but has named inner functions)
+
+
+---
+## Thanks
