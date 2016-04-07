@@ -37,6 +37,8 @@ zebra
 ## Going Backwards
 
 ```python
+animals = ['cow', 'horse', 'zebra']
+
 for animal in reversed(animals):
     print(animal)
 ```
