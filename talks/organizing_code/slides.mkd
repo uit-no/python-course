@@ -5,26 +5,32 @@ Keeping your code:
 * readable
 * correct
 * robust
-* maintainable
 * testable
+* maintainable
 
 Most of this talk this applies to any language.
 
 
----
 
 
 ---
+# Part 1: Readable Code
 
-## Readable Code
+Follow [PEP-8](https://www.python.org/dev/peps/pep-0008/).
 
-Follow PEP-8.
+You spend a lot more time reading code than writing it. Spend some
+time making your code readable and you'll save lots of time and
+frustration later.
 
-(The line length limit is controversial.)
+Readability leads to understanding, understanding leads to reliable
+programs.
+
+* use good names
+* use [PEP-8](https://www.python.org/dev/peps/pep-0008/) as a guideline
+* add whitespace to break things up
+
 
 ---
-
-
 ## Naming Conventions
 
 ```python
@@ -38,19 +44,139 @@ This makes them easy to tell apart.
 
 
 ---
+## Don't Write Java in Python
+
+This looks like Python:
+
+```python
+def do_this(and_this):
+    return and_this
+```
+
+This doesn't:
+
+```python
+def DontDoThis(orThis)
+    return len(orThis)
+```
+
+CamelCase is only for classes:
+
+```python
+class DogFood:
+    ...
+```
+
+Same goes for file names:
+
+```
+this_is_good.py
+ThisLooksLikeJava.py
+```
 
 
+---
+## Functions are Verbs
+
+Use verbs as function names:
+
+```python
+person = get_person(db, username)
+```
+
+```python
+if is_student(person):
+    # Do student specific thing.
+```
+
+
+---
+## Plurals are Plural
+
+This:
+
+```python
+for name in names:
+```
+
+reads better than:
+
+```python
+for name in name_list:
+```
+
+
+---
+## Use Dictionaries Instead of Ifelse
+
+Instead of:
+
+```python
+def get_mode_name(mode):
+    if mode == 0:
+        return 'stopped'
+    elif mode == 1:
+        return 'playing'
+    elif mode == '3':
+        return 'recording':
+    else:
+        raise ValueError('Unknown mode {}'.format(mode))
+
+>>> get_mode_name(1)
+playing
+```
+
+do:
+
+```python
+MODES = {
+    0: 'mode',
+    1: 'playing',
+    3: 'recording',
+}
+
+>>> MODES[1]
+playing
+```
+
+
+---
+# Part 2: Organizing Your Code
+
+(Well organized code is also more readable.)
+
+
+---
 ## Contruct Your Program From Parts
 
 * functions, modules, packages
 * dictionaries, lists, sets
-* well defined interfaces between parts
 
-![Tree](graphs/tree.svg)
+Make parts that are easy to fit together and combine in different ways.
 
 
 ---
+## Modules and Packages
 
+You've already written a module!
+
+A module is a Python file.
+
+A package is a directory of modules.
+
+### `__init__.py`
+
+* is the top level module in a package
+* should only contain imports (no code or data)
+
+Example: https://github.com/olemb/mido/
+
+
+---
+## Keep Related Things Together
+
+
+---
 ## Contain the Mess
 
 Some parts of your code are always going to be messy.
@@ -64,44 +190,50 @@ The rest of your code will now be cleaner.
 
 
 ---
+## Avoid Global Variables
 
+This raises many questions:
+
+```python
+def greet(name):
+    print(config['greeting'], name)
+```
+
+* what is `config`?
+* where does it come from?
+* what else is in `config`?
+
+A function should know only what it needs to know:
+
+```python
+def greet(name, greeting='Hello'):
+    print(greeting, name)
+
+greet('Steve', greeting='Howdy')
+```
+
+
+---
 ## State is Evil
 
-* use pure functions when possible
-* a pure function doesn't modify anything outside itself
-* keep I/O near `main()`
+A function that changes its environment is hard to test.
 
-Todo: what is main()?
+A pure function is one that always returns the same output for a given
+input.
+
+* use pure functions when possible
+* don't do I/O deep down in your program
 
 
 ---
-
-
 ## Don't Repeat Yourself (DRY)
 
-* don't copy and paste code
+* don't do the same thing in many places
+* don't copy and paste code to make a slightly different function
 * when you see repetition, it might be time for a function
-
-(Todo: Add example.)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
-
-
 ## But Don't Contort Yourself
 
 To avoid this repetition:
@@ -135,209 +267,21 @@ but it's not worth it for such a small table and it makes the code harder to und
 
 
 ---
+## Break It Info Functions
 
-## Don't Copy and Paste Code
-
-Instead of:
-
-```python
-def make_employee_card(employee):
-    card = {
-        'first_name': employee['first_name'],
-        'last_name': employee['last_name'],
-        'type': 'employee',
-    }
-
-def make_student_card(student):
-
-```
-
-do:
-
-https://en.wikipedia.org/wiki/Copy_and_paste_programming
-
-
----
-
-## Break it Into Functions
-
-* if a functions gets to long
+* if you have too many levels of indentation
+* if a function gets too long
 * if a function does more than one thing
 
-When you find yourself commenting blocks of code:
-
-```python
-def (name):
-
-```
-
-it's time for a function:
-
-
+If you find it hard to name a function it may be doing more than one
+thing.
 
 
 ---
+## Interactive Example Time
 
-## Use Dictionaries Instead of Ifs
+Recommended video:
 
-Instead of:
-
-```python
-def get_mode_name(mode):
-    if mode == 0:
-        return 'stopped'
-    elif mode == 1:
-        return 'playing'
-    elif mode == 3':
-        return 'recording':
-    else:
-        raise ValueError('Unknown mode {}'.format(mode))
-
->>> get_mode_name(1)
-playing
-```
-
-do:
-
-```python
-MODES = {
-    0: 'mode',
-    1: 'playing',
-    3: 'recording',
-}
-
->>> MODES[1]
-playing
-```
-
-
----
-
-## Spaghetti Code
-
-![Test](images/spaghetti.svg)
-
-
----
-
-## Readability
-
-You spend a lot more time reading code than writing it. Spend some time making your code readable and you'll save lots of time and frustration later.
-
-* use good names
-* use [PEP-8](https://www.python.org/dev/peps/pep-0008/) as a guideline
-* add whitespace to break things up
-
-Readability leads to understanding, understanding leads to reliable programs.
-
-
----
-
-## Modules
-
-You've already written a module!
-
-A module is a Python file.
-A package is a directory of modules.
-A module contains functions.
-
-A module is a namespace.
-
-
----
-
-## Functions are Verbs
-
-Use verbs as function names:
-
-```python
-person = get_person(db, username)
-```
-
-```python
-if is_student(person):
-    # Do student specific thing.
-```
-
-
----
-## 
-
-```python
-for name in names:
-```
-
-reads better than:
-
-```python
-for name in name_list:
-```
-
-
----
-## Naming Conventions
-
-`_something_internal`.
-
-* internal to module (or object)
-* not enforced, but is a clue that it's not a part of the API
-
-
----
-
-## `__init__.py`
-
-* is the top level module
-* should only contain imports (no code or data)
-
-Example:
-
-```python
-from .messages import Message
-from .midifile import MidiFile, MidiTrack
-from .parser import Parser, parse, parse_all
-```
-
-
-## Further Reading
-
-* [Idiomatic Python (Jeff Knupp)](https://jeffknupp.com/writing-idiomatic-python-ebook/)
-
-
-
-
-
-
-
-
-## Don't Write Java in Python
-
-This looks like Python:
-
-```python
-def do_this(and_this):
-    return and_this
-```
-
-This doesn't:
-
-```python
-def DontDoThis(orThis)
-    return len(orThis)
-```
-
-`CamelCase` is only for classes:
-
-```python
-class DogFood:
-    ...
-```
-
-Same goes for file names:
-
-```
-this_is_good.py
-ThisLooksLikeJava.py
-```
-
----
+Transforming Code into Beautiful, Idiomatic Python
+(1 hour talk by Raymond Hettinger)
+https://www.youtube.com/watch?v=OSGv2VnC0go
