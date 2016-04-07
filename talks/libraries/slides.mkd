@@ -69,8 +69,6 @@ Eh, I give up. Let's just use a library already.
 ---
 ## Let's Use Click
 
-`greet.py`:
-
 ```python
 import click
 

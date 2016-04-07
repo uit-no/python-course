@@ -199,6 +199,7 @@ def greet(name):
 
 * what is `config`?
 * where does it come from?
+* will it change?
 * what else is in `config`?
 
 A function should know only what it needs to know:
@@ -209,18 +210,6 @@ def greet(name, greeting='Hello'):
 
 greet('Steve', greeting='Howdy')
 ```
-
-
----
-## State is Evil
-
-A function that changes its environment is hard to test.
-
-A pure function is one that always returns the same output for a given
-input.
-
-* use pure functions when possible
-* don't do I/O deep down in your program
 
 
 ---
