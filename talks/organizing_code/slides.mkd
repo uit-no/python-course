@@ -8,10 +8,6 @@ Keeping your code:
 * testable
 * maintainable
 
-Most of this talk this applies to any language.
-
-
-
 
 ---
 # Part 1: Readable Code
@@ -153,6 +149,8 @@ playing
 * dictionaries, lists, sets
 
 Make parts that are easy to fit together and combine in different ways.
+
+Make every part of the program a building block for building more program.
 
 
 ---

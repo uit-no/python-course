@@ -22,7 +22,52 @@ Hello, enaJ!
 
 
 ---
-## Basic Example
+## Why Use a Library for This?
+
+Let's try without a library:
+
+```python
+import sys
+
+# sys.argv is a list of arguments to our program.                               
+# sys.argv[1] is the name of the program, so we need sys.argv[1]                
+name = sys.argv[1]
+print('Hello, {}!'.format(name))
+```
+
+```
+$ python greet.py Jane
+Hello, Jane!
+```
+
+It works? But how about `--reverse`?
+
+
+---
+## Let's Still Not Use a Library
+
+```python
+import sys
+
+opts = {'reverse': False}
+args = []
+
+for arg in sys.argv[1]:
+    if arg.startswith('-'):
+        if arg == '--reverse':
+            opts['reverse'] = True
+        else:
+            print('Unknown option {!r}'.format(arg), file=sys.stderr)
+    else:
+
+        uhm...
+```
+
+Eh, I give up. Let's just use a library already.
+
+
+---
+## Let's Use Click
 
 `greet.py`:
 
