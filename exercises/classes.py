@@ -9,9 +9,8 @@ def make_dog_class():
         a fish meets a dog" - but extra kudos to you if you can make it so.
     """
 
-    # The classes Pet and Fish are taken from the notebook, with the addition
-    # of '_advance_time_individual' in pet. copy and paste (and modify) them
-    # into the other exercises as you need them.
+    # The classes Pet and Fish are taken from the talk, with the addition of
+    # '_advance_time_individual' in Pet.
     class Pet:
         population = set()
         
@@ -35,8 +34,8 @@ def make_dog_class():
                 pet._advance_time_individual()
 
         def _advance_time_individual(self):
-            # the leading _ in the function name is a convention that indicates
-            # to users of a class that "this is a method that is used
+            # the leading _ in an attribute name is a convention that indicates
+            # to users of a class that "this is an attribute that is used
             # internally, I probably shouldn't call it myself"
             self.age += 1
             self.hunger += 1
