@@ -1,4 +1,4 @@
-## Libraries Part 2: Command Lines, HTTP Requests and Databases
+## Libraries: Command Lines, HTTP Requests and Databases
 
 * Click (http://click.pocoo.org/)
 * Requests (http://docs.python-requests.org/
