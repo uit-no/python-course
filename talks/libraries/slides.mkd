@@ -6,19 +6,25 @@
 
 
 ---
+## Command Line Arguments
 
-## Click
+What we want:
 
-Command line arguments.
+```
+$ python greet.py Jane
+Hello, Jane!
+```
 
-http://click.pocoo.org/
+```
+$ python greet.py --reverse Jane
+Hello, enaJ!
+```
 
 
 ---
-
 ## Basic Example
 
-``hello.py``:
+`greet.py`:
 
 ```python
 import click
@@ -26,30 +32,23 @@ import click
 @click.command()
 @click.argument('name')
 def main(name):
-    print('hello, {}!'.format(name))
+    print('Hello, {}!'.format(name))
 
 main()
 ```
 
-
----
-
-Terminal:
+```bash
+$ python greet.py Jane
+Hello, Jane!
+```
 
 ```bash
-$ python hello.py --help
-Usage: hello.py [OPTIONS] NAME
-
-Options:
-  --help  Show this message and exit.
-
-$ python hello.py Bob
-Hello, Bob!
+$ python greet.py --reverse Jane
+Error: no such option: --reverse
 ```
 
 
 ---
-
 ## Adding an Option
 
 ```python
@@ -57,24 +56,31 @@ import click
 
 @click.command()
 @click.argument('name')
-@click.option('--reverse', is_flag=True)
+@click.option('--reverse', is_flag=True, help='Reverse name.')
 def main(name, reverse):
     if reverse:
         name = name[::-1]
-    print('hello, {}!'.format(name))
+    print('Hello, {}!'.format(name))
 
 main()
 ```
 
-Terminal:
+```bash
+$ python greet.py --help
+Usage: greet.py [OPTIONS] NAME
+
+Options:
+  --reverse  Reverse name.
+  --help     Show this message and exit.
+```
 
 ```bash
-$ python hello.py
+$ python greet.py --reverse Jane
+Hello, enaJ!
 ```
 
 
 ---
-
 ## Requests: HTTP for Humans
 
 http://docs.python-requests.org/
@@ -90,7 +96,6 @@ print(r.text[:100])
 
 
 ---
-
 ## Basic Functionality
 
 ```python
@@ -108,7 +113,6 @@ http://docs.python-requests.org/en/master/user/quickstart/
 
 
 ---
-
 ## Web Services
 
 Example: Star Wars API: https://swapi.co/
@@ -117,7 +121,6 @@ Returns (JSON)[http://json.org/] which is converted to a Python list or dictiona
 
 
 ---
-
 ## Example: Star Wars API
 
 ```python
@@ -130,7 +133,6 @@ pprint(luke)
 
 
 ---
-
 ## Databases
 
 Python Database API (https://www.python.org/dev/peps/pep-0249/)
@@ -139,7 +141,6 @@ Same API for all database (SQLite, MySQL, PostgreSQL, Oracle etc.)
 
 
 ---
-
 ## Example: SQLite
 
 https://www.sqlite.org/
@@ -161,7 +162,6 @@ for row in cursor:
 
 
 ---
-
 ## Connection Parameters
 
 Databases differ here.
@@ -170,7 +170,7 @@ PostgreSQL:
 
 ```python
 import psycopg2
-conn = psycopg2.connect('dbname=movies user=bob')
+conn = psycopg2.connect('dbname=movies user=jane')
 ```
 
 MySQL
@@ -182,7 +182,6 @@ conn = MySQLdb.connect(db='movies', host='localhost')
 
 
 ---
-
 ## Query Arguments
 
 Databases differ here as well.
@@ -201,12 +200,4 @@ cursor.execute('select * from movies where title=%s', ['Minions'])
 
 
 ---
-
-## Examples
-
-* [geturl.py](/edit/examples/libraries2/geturl.py)
-* [star_wars_name.py](/edit/examples/libraries2/star_wars_name.py)
-
-```python
-```
-
+## Thanks!
