@@ -6,6 +6,7 @@ Keeping your code:
 * correct
 * robust
 * maintainable
+* testable
 
 Most of this talk this applies to any language.
 
@@ -43,7 +44,7 @@ This makes them easy to tell apart.
 
 * functions, modules, packages
 * dictionaries, lists, sets
-* well defined API's between parts
+* well defined interfaces between parts
 
 ![Tree](graphs/tree.svg)
 
@@ -57,7 +58,7 @@ Some parts of your code are always going to be messy.
 Quarantine the mess:
 
 * put it in a function or module
-* make a well defined API for it
+* make a well defined inteface for it
 
 The rest of your code will now be cleaner.
 
@@ -69,6 +70,8 @@ The rest of your code will now be cleaner.
 * use pure functions when possible
 * a pure function doesn't modify anything outside itself
 * keep I/O near `main()`
+
+Todo: what is main()?
 
 
 ---
@@ -210,7 +213,7 @@ playing
 
 ---
 
-## Spagetti Code
+## Spaghetti Code
 
 ![Test](images/spaghetti.svg)
 
@@ -256,6 +259,19 @@ if is_student(person):
     # Do student specific thing.
 ```
 
+
+---
+## 
+
+```python
+for name in names:
+```
+
+reads better than:
+
+```python
+for name in name_list:
+```
 
 
 ---
