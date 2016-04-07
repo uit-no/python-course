@@ -83,15 +83,18 @@ Hello, enaJ!
 ---
 ## Requests: HTTP for Humans
 
-http://docs.python-requests.org/
-
 ```python
 import requests
 
-r = requests.get('https://google.com/')
+response = requests.get('http://google.com/')
 
-print(r.ok)
-print(r.text[:100])
+print(response.ok)
+print(response.text[:60])
+```
+
+```python
+True
+<!doctype html><html itemscope="" itemtype="http://schema.or
 ```
 
 
@@ -99,17 +102,20 @@ print(r.text[:100])
 ## Basic Functionality
 
 ```python
-# Parameters: "http://uit.no/people?first_name=Anne"
-r = requets.get(url, params={'first_name': 'Anne'})
-
-# Posting data:
-r = requests.post(url, data={'key': 'value'})
-
-# Authentication:
-r = requests.get(url, auth=('the_username', 'the_password'))
+requests.get(url)
 ```
 
-http://docs.python-requests.org/en/master/user/quickstart/
+```python
+requests.get(url, params={'country': 'Norway'})  # ?country=Norway
+```
+
+```python
+requests.get(url, auth=('bob', 'secret'))
+```
+
+```python
+requests.post(url, data={'some': 'thing'})
+```
 
 
 ---
@@ -117,18 +123,27 @@ http://docs.python-requests.org/en/master/user/quickstart/
 
 Example: Star Wars API: https://swapi.co/
 
-Returns (JSON)[http://json.org/] which is converted to a Python list or dictionary.
-
-
----
-## Example: Star Wars API
-
 ```python
 from pprint import pprint
 
-r = requests.get('https://swapi.co/api/people/1')
-luke = r.json()
+response = requests.get('https://swapi.co/api/people/1')
+luke = response.json()
 pprint(luke)
+```
+
+```
+{'birth_year': '19BBY',
+ 'name': 'Luke Skywalker',
+ 'eye_color': 'blue',
+ 'films': ['http://swapi.co/api/films/6/',
+           'http://swapi.co/api/films/3/',
+           'http://swapi.co/api/films/2/',
+           'http://swapi.co/api/films/1/',
+           'http://swapi.co/api/films/7/'],
+ 'gender': 'male',
+ 'hair_color': 'blond',
+
+ ...
 ```
 
 
@@ -152,7 +167,7 @@ https://www.sqlite.org/
 ```python
 import sqlite3
 
-conn = sqlite3.connect('files/movies.db')
+conn = sqlite3.connect('movies.db')
 cursor = conn.cursor()
 
 cursor.execute('select * from movies')
