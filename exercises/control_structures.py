@@ -1,11 +1,8 @@
-# isdgoijsijg
-
 def simple_generator():
     """
-    Yield 'horse', 'cow' and 'mouse'.
-    (Don't return a list.)
+    Also yield 'cow' and 'mouse'.
     """
-    pass
+    yield 'horse'
 
 
 def test_simple_generator():
