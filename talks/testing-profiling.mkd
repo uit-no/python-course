@@ -208,19 +208,6 @@ if __name__ == '__main__':
 
 ---
 
-## Fun: Jenkins "Extreme Feedback" Contraption
-
-https://github.com/codedance/Retaliation
-
-"Retaliation is a Jenkins CI build monitor that automatically coordinates a
-foam missile counter-attack against the developer who breaks the build. It does
-this by playing a pre-programmed control sequence to a USB Foam Missile
-Launcher to target the offending code monkey."
-
-<img src="img/launcher.jpg" style="width: 400px;"/>
-
----
-
 ## When do we want to optimize the code?
 
 - Code is too slow
