@@ -17,11 +17,11 @@ Google and Stack Overflow.
 
 You can run the tests like this::
 
-  $ py.test -vv basics.py
+  $ py.test -s -vv basics.py
 
 You can also run a single test, e.g.::
 
-  $ py.test -vv -k test_reverse_list basics.py
+  $ py.test -s -vv -k test_reverse_list basics.py
 
 
 Basics
