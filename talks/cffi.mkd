@@ -1,0 +1,38 @@
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+
+# Talking to C/C++/Fortran via CFFI
+
+## Radovan Bast
+
+High Performance Computing Group,
+UiT The Arctic University of Norway
+
+Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Code examples: [OSI](http://opensource.org)-approved [MIT license](http://opensource.org/licenses/mit-license.html).
+
+---
+
+layout: false
+
+## Python vs. C/C++/Fortran
+
+### Python
+
+- garbage collection
+- I/O
+- command line parsing
+- expressive
+- easy to read
+- many packages
+- collections/containers
+
+### C/C++/Fortran
+
+- lower level
+- closer to metal
+- high-performance
+- threading
