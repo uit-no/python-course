@@ -29,6 +29,7 @@ layout: false
 - Easy to read
 - Many packages
 - Collections/containers
+- Nice testing libraries
 
 ### C/C++/Fortran
 
@@ -53,3 +54,6 @@ layout: false
 - Inteface is thin
 - Requires you to create a C interface (that's a good thing)
 - Requires your interface to be simple (that's a good thing)
+- Not intrusive to Python or C
+- Link C and Fortran via `iso_c_binding`
+- (Rest is live demo)
