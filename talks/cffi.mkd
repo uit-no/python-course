@@ -36,3 +36,13 @@ layout: false
 - closer to metal
 - high-performance
 - threading
+- legacy code
+
+---
+
+## How
+
+- Cython
+- SWIG
+- F2PY
+- CFFI https://cffi.readthedocs.org
