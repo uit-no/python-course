@@ -1,40 +1,3 @@
-
-
-
-
-
-## Don't Write Java in Python
-
-This looks like Python:
-
-```python
-def do_this(and_this):
-    return and_this
-```
-
-This doesn't:
-
-```python
-def DontDoThis(orThis)
-    return len(orThis)
-```
-
-`CamelCase` is only for classes:
-
-```python
-class DogFood:
-    ...
-```
-
-Same goes for file names:
-
-```
-this_is_good.py
-ThisLooksLikeJava.py
-```
-
----
-
 # Organizing Code
 
 Keeping your code:
@@ -117,6 +80,20 @@ The rest of your code will now be cleaner.
 * when you see repetition, it might be time for a function
 
 (Todo: Add example.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
@@ -309,3 +286,42 @@ from .parser import Parser, parse, parse_all
 ## Further Reading
 
 * [Idiomatic Python (Jeff Knupp)](https://jeffknupp.com/writing-idiomatic-python-ebook/)
+
+
+
+
+
+
+
+
+## Don't Write Java in Python
+
+This looks like Python:
+
+```python
+def do_this(and_this):
+    return and_this
+```
+
+This doesn't:
+
+```python
+def DontDoThis(orThis)
+    return len(orThis)
+```
+
+`CamelCase` is only for classes:
+
+```python
+class DogFood:
+    ...
+```
+
+Same goes for file names:
+
+```
+this_is_good.py
+ThisLooksLikeJava.py
+```
+
+---
