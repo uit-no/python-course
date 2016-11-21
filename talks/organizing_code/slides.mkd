@@ -30,10 +30,10 @@ programs.
 ## Naming Conventions
 
 ```python
-AnimalFile        # Class names are camel case.
-animal_lengths    # Variables are lowercase with underscores.
-animal_lengths()  # So are functions.
-BAD_ANIMALS       # Contants are uppercase.
+animal         # Variables are lowercase with underscores.
+feed_animal()  # So are functions.
+AnimalFile     # Class names are camel case.
+BAD_ANIMALS    # Contants are uppercase.
 ```
 
 This makes them easy to tell apart.
@@ -103,7 +103,7 @@ for name in name_list:
 
 
 ---
-## Use Dictionaries Instead of Ifelse
+## Use Dictionaries Instead of if/else
 
 Instead of:
 
